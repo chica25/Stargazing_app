@@ -1,0 +1,2 @@
+module AstrophotographersHelper
+end
