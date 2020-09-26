@@ -1,0 +1,2 @@
+class Astrophotographer < ApplicationRecord
+end

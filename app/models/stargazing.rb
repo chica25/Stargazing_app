@@ -1,0 +1,2 @@
+class Stargazing < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class StargazingsController < ApplicationController
+end
