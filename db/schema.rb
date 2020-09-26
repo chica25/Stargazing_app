@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_212622) do
   create_table "constellations", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.decimal "light_years_away_from_earth"
+    t.float "light_years_away_from_earth"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

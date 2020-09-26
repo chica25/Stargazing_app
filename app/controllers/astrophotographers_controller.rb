@@ -1,6 +1,10 @@
 class AstrophotographersController < ApplicationController
 
+    def index 
+        @astrophotographer = Astrophotographer.all
+    end
+
     def new
-        @astrophotographer = Astrophotographer.new
+       
     end
 end
