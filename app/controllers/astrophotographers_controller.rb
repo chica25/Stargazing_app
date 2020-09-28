@@ -1,5 +1,5 @@
 class AstrophotographersController < ApplicationController
-    before_action :set_params, only: [:show, :edit, :update]
+    before_action :set_params, only: [:edit, :update]
 
     def index 
         @astrophotographers = Astrophotographer.all
@@ -7,10 +7,6 @@ class AstrophotographersController < ApplicationController
 
     def new
         @astrophotographer = Astrophotographer.new   
-    end
-
-    def show
-        set_params
     end
 
     def create
@@ -23,7 +19,6 @@ class AstrophotographersController < ApplicationController
     end
 
     def edit 
-        set_params
     end
 
     def update
@@ -33,7 +28,7 @@ class AstrophotographersController < ApplicationController
 
 private
     def astro_params
-        params.require(:astrophotographer).permmit(:username, :password_digest)
+        params.require(:astrophotographer).permit(:username, :password_digest)
     end
 
     def set_params

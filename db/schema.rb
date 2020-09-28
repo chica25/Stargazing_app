@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_212622) do
+ActiveRecord::Schema.define(version: 2020_09_28_192634) do
 
   create_table "astrophotographers", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "profile_image"
+    t.string "bio"
   end
 
   create_table "constellations", force: :cascade do |t|
