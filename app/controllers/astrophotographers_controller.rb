@@ -1,21 +1,26 @@
 class AstrophotographersController < ApplicationController
     before_action :set_params, only: [:edit, :update]
 
-    def index 
-        @astrophotographers = Astrophotographer.all
-    end
-
+    #loads the signup form
     def new
-        @astrophotographer = Astrophotographer.new   
+        @astrophotographer = Astrophotographer.new 
+        render :login  
     end
 
+    #signup
     def create
         @astrophotographer = Astrophotographer.create(astro_params)
         if @astrophotographer.save
+            #login the user
+            session[:astrophotographer_id] = @astrophotographer.id
             redirect_to astrophotographer_path(@astrophotographer)
         else
             render :new
         end
+    end
+    
+    def index 
+        @astrophotographers = Astrophotographer.all
     end
 
     def edit 
@@ -28,7 +33,7 @@ class AstrophotographersController < ApplicationController
 
 private
     def astro_params
-        params.require(:astrophotographer).permit(:username, :password_digest)
+        params.require(:astrophotographer).permit(:username, :password)
     end
 
     def set_params

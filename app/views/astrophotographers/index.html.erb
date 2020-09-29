@@ -1,9 +1,7 @@
 <h1>User Login</h1>
 <% @astrophotographers.each do |astro| %>
-<label>Username:</label>
-    <%= astro.username %><br>
-    <label>Password:</label>
-    <%= astro.password_digest %><br>
+    <p><%= astro.username %></p>
+   <!-- <p><%= astro.password_digest %></p> -->
 <% end %>
 
 

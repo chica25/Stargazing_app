@@ -1,6 +1,6 @@
-<h1>Sign up</h1> 
+<h1>Log In</h1>
 
-<%= form_for @astrophotographer do |f| %>
+<%= form_for(@astrophotographer) do |f| %>
 
     <%= f.label :username %>
     <%= f.text_field :username %>
@@ -8,6 +8,6 @@
     <%= f.label :Password %>
     <%= f.password_field :password %>
 
-    <%= f.submit "Sign In" %>
+    <%= f.submit "Log In" %>
 
 <% end %>
