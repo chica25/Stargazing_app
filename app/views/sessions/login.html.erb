@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 
-<%= form_for(@astrophotographer) do |f| %>
+<%= form_for @astrophotographer, url: '/login' do |f| %>
 
     <%= f.label :username %>
     <%= f.text_field :username %>
@@ -11,3 +11,4 @@
     <%= f.submit "Log In" %>
 
 <% end %>
+

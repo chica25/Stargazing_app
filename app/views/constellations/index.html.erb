@@ -1,0 +1,11 @@
+<h1>Index Page</h1>
+
+<% @constellations.each do |con| %>
+<ul>
+    <li><%= con.name %></li>
+    <li><%= con.description %></li>
+     <li><%= con.light_years_away_from_earth %></li>  
+</ul> 
+<% end %>
+
+<%= link_to "Add Constellation", new_constellation_path %>

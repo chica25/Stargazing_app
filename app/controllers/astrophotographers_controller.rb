@@ -4,7 +4,7 @@ class AstrophotographersController < ApplicationController
     #loads the signup form
     def new
         @astrophotographer = Astrophotographer.new 
-        render :login  
+        render :signup 
     end
 
     #signup
@@ -13,9 +13,9 @@ class AstrophotographersController < ApplicationController
         if @astrophotographer.save
             #login the user
             session[:astrophotographer_id] = @astrophotographer.id
-            redirect_to astrophotographer_path(@astrophotographer)
+            redirect_to astrophotographer_path
         else
-            render :new
+            redirect_to :signup
         end
     end
     
