@@ -1,11 +1,11 @@
 class ConstellationsController < ApplicationController
+    before_action :set_const, only: [ :show]
 
     def index
         @constellations = Constellation.all
     end
 
     def show
-        @constellation = Constellation.find(params[:id])
     end
 
     def new
@@ -25,5 +25,9 @@ class ConstellationsController < ApplicationController
 
     def const_params
         params.require(:constellation).permit(:name, :description, :light_years_away_from_earth, :url_image)
+    end
+
+    def set_const
+        @constellation = Constellation.find(params[:id])
     end
 end
