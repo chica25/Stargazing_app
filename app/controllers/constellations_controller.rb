@@ -1,5 +1,5 @@
 class ConstellationsController < ApplicationController
-    before_action :set_const, only: [ :show]
+    before_action :set_const, only: [:show]
 
     def index
         @constellations = Constellation.all
