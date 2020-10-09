@@ -4,18 +4,17 @@ class AstrophotographersController < ApplicationController
     #loads the signup form
     def new
         @astrophotographer = Astrophotographer.new 
-        render :signup 
     end
 
     #signup
     def create
-        @astrophotographer = Astrophotographer.create(astro_params)
+        @astrophotographer = Astrophotographer.new(astro_params)
         if @astrophotographer.save
             #login the user
             session[:astrophotographer_id] = @astrophotographer.id
-            redirect_to astrophotographer_path
+            redirect_to about_path
         else
-            redirect_to :signup
+            render :new
         end
     end
     
@@ -31,7 +30,8 @@ class AstrophotographersController < ApplicationController
         redirect_to astrophotographer_path(@astrophotographer)
     end
 
-private
+    private
+
     def astro_params
         params.require(:astrophotographer).permit(:username, :password)
     end

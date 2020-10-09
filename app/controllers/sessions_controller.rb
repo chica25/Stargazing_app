@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
         @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
         if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
             session[:astrophotographer_id] = @astrophotographer.id
-            redirect_to astrophotographer_path
+            redirect_to about_path
         else
-            redirect_to 'login'
+            redirect_to login_path
         end
     end
 
