@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/signup', to: 'astrophotographers#new'
   post '/signup', to: 'astrophotographers#create'
+  #get '/stargazings', to: 'stargazings#new'
  
   resources :astrophotographers, :constellations, :stargazings, :sessions
  
