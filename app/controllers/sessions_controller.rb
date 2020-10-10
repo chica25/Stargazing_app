@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
         if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
             session[:astrophotographer_id] = @astrophotographer.id
-            redirect_to about_path
+            redirect_to home_path
         else
             redirect_to login_path
         end
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     def home
     end
 
-    #logout
+    # logout
     def destroy
         session.clear
         redirect_to '/'

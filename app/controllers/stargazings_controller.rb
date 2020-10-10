@@ -15,6 +15,6 @@ class StargazingsController < ApplicationController
 
     private 
     def stargazing_params
-        params.require(:startgazing).permit(:location, :weather, :time)
+        params.require(:stargazing).permit(:location, :weather, :time)
     end
 end

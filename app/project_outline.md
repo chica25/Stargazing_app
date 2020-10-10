@@ -28,3 +28,22 @@ Stargazing - astrophotographer_id, constellation_id, location, weather, time √
 - Routes - nested routes
 
 * May include Active Storage
+
+association notes
+- How can I create a new stargazing?
+- How can I query the astrophotographer of a stargazing?
+- How can I find all the constellations of the astrophotographer's    stargazings? 
+
+Astrophotographer 
+- Has many :stargazings
+- Has many :constellations through: :stargazing
+- show the constellations of all the astrophotographers
+
+Constellation
+- has many :stargazings 
+- has many :Astrophotographers through: :stargazings 
+
+Stargazings
+- belongs_to :Astrophotographer
+- belongs_to :Stargazings
+
