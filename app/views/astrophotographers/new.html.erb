@@ -1,15 +1,21 @@
-<h1>Welcome back, <%= @astrophotographer.username %></h1> 
+
+<!--
+<h1>Signup</h1>
 
 <%= form_for(@astrophotographer) do |f| %>
 
-    <%= f.label :profile_image %>
-    <%= f.text_field :profile_image %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
     <br><br>
- 
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-     <br><br>
+    <%= f.label :Password %>
+    <%= f.password_field :password %>
+    <br><br>
+    <%= f.submit "Signup" %>
 
-    <%= f.submit "create" %>
+<% end %> 
+<br>
 
-<% end %>
+<%= link_to "login", login_path %>
+
+<%= link_to "home", root_path %>
+-->

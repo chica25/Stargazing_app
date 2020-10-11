@@ -1,5 +1,5 @@
 class ConstellationsController < ApplicationController
-    before_action :set_const, only: [:show]
+    before_action :set_cons, only: [:show, :edit]
 
     def index
         @constellations = Constellation.all
@@ -13,21 +13,37 @@ class ConstellationsController < ApplicationController
     end
 
     def create
-        @constellation = Constellation.new(const_params)
-        if @constellation.save
-            redirect_to  constellation_path(@constellation)
-        else
-         render :new
-        end
+       @constellation = Constellation.create(cons_params)
+       #if @constellation.save
+         redirect_to constellation_path(@constellation)
+        # else
+        #  render :new
+        # end
+    end
+
+    def edit
+    end
+
+    def update
+        @constellation = Constellation.find_by_id(params[:id])
+        @constellation.update(cons_params)
+        redirect_to constellation_path(@constellation)
+    end
+
+    def destroy
+        @constellation = Constellation.find_by_id(params[:id])
+        @constellation.destroy
+        redirect_to constellations_path
     end
 
     private
 
-    def const_params
+    def cons_params
         params.require(:constellation).permit(:name, :description, :light_years_away_from_earth, :url_image)
     end
 
-    def set_const
-        @constellation = Constellation.find(params[:id])
+    def set_cons
+        @constellation = Constellation.find_by_id(params[:id])
     end
 end
+

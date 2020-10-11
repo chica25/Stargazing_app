@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+cons = Constellation.create([{ :constellation_name => "Orion"}, {:constellation_name => "Apus"}])

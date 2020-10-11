@@ -1,7 +1,11 @@
-<h1>Profile</h1>
-<!-- 
-# Name
-# Astrophotographer image 
-# Bio
+<!--
+<h1>Welcome back, <%= @astrophotographer.username %></h1> 
+
+<%= form_tag("/logout", method: 'delete') do %>
+    <%= submit_tag "Logout" %>
+
+<% end %>
+
+<%= link_to "Logout", logout_path, method: "delete" %>
+
 -->
-<%= link_to 'new', new_astrophotographer_path %>
