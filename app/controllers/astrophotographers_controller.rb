@@ -16,6 +16,10 @@ class AstrophotographersController < ApplicationController
         end
     end
 
+    def index
+        @astrophotographers = Astrophotographer.all
+    end
+
     def show
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
         redirect_to '/' if !@astrophotographer
@@ -28,7 +32,7 @@ class AstrophotographersController < ApplicationController
     def update
         @astrophotographer = Astrophotographer.find(params[:id])
         @astrophotographer.update(astro_params)
-        redirect_to edit_astrophotographer_path 
+        redirect_to '/'
     end
 
     private
