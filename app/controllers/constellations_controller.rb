@@ -11,14 +11,14 @@ class ConstellationsController < ApplicationController
     def new
         @constellation = Constellation.new
     end
-
+    
     def create
-       @constellation = Constellation.create(cons_params)
-       #if @constellation.save
-         redirect_to constellation_path(@constellation)
-        # else
-        #  render :new
-        # end
+       @constellation = Constellation.new(cons_params)
+       if @constellation.save
+         redirect_to new_constellation_stargazing_path(@constellation)
+        else
+          render :new
+         end
     end
 
     def edit
@@ -33,13 +33,13 @@ class ConstellationsController < ApplicationController
     def destroy
         @constellation = Constellation.find_by_id(params[:id])
         @constellation.destroy
-        redirect_to constellations_path
+        redirect_to constellation_path
     end
 
     private
 
     def cons_params
-        params.require(:constellation).permit(:name, :description, :light_years_away_from_earth, :url_image)
+        params.require(:constellation).permit(:name, :image_url, :description, :light_years_away_from_earth, stargazing_attributes: [:location, :weather, :time])
     end
 
     def set_cons

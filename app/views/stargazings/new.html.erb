@@ -1,38 +1,11 @@
-<!--
-<h1>New Stargazing</h1>
 
-apply error message
-<%= @stargazing.errors.any? %> 
--->
-<%= form_for @stargazing do |f| %>
-<!--collection select 
--->
-<%= f.label "select an existing Constellation" %> 
-    <%= f.collection_select :constellation_id, Constellation.all, :id, :constellation_name, include_blank: true %>
-   <%=f.label "Or create a new one:"%>
-    <%= f.fields_for :constellation, Constellation.new do |cons_field| %>
-
-    <%= cons_field.label :constellation_name %>
-    <%= cons_field.text_field :constellation_name %>
-
-    <%= cons_field.label :description %>
-    <%= cons_field.text_area :description  %>
-
-    <%= cons_field.label :light_years_away_from_earth %>
-    <%= cons_field.number_field :light_years_away_from_earth %>
-
-    <br> <br>
-        <%= cons_field.label :image_url %>
-        <%= cons_field.text_field :image_url  %>
-     
-     <% end %>
-     
-        <%= f.label :location %>
-        <%= f.text_field :location %>
-        <%= f.label :weather %>
-        <%= f.number_field :weather %>
-        <%= f.label :time %>
-        <%= f.time_field :time %>
-        <%= f.submit %>
-<% end %>
--->
+<h1>New Stargazing for <%=@constellation.name%></h1>
+<%=form_for([@contellation, @stargazing]) do |f|%>
+        <%=f.label :location%>
+        <%=f.text_field :location%>
+        <%=f.label :weather%>
+        <%=f.number_field :weather%>
+        <%=f.label :time%>
+        <%=f.time_field :time%>
+        <%=f.submit%>
+<%end%>

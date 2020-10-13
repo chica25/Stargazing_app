@@ -1,12 +1,12 @@
 <h1>Show List</h1>
-<%= link_to "Home", constellations_path %>
+<%=link_to "Home", constellations_path%>
+   <%=@constellation.name%>
+    <p>Image URL: <%= @constellation.image_url%></p>
+    <p>Description: <%= @constellation.description%></p>
+    <p>Light Years Away from Earth: <%=@constellation.light_years_away_from_earth%></p>
+<%=link_to "Edit", edit_constellation_path(@constellation)%>
+<%=link_to "Delete", constellation_path(@constellation), method: :delete%>
+<%=link_to "List of all Constellatons",constellations_path%>
+<%=link_to "New Constellatons", new_constellation_stargazing_path(@constellation)%>
+<%= link_to "Add New Stargazing", new_constellation_stargazing_path(@constellation) %>
 
-    <p><strong>Name: </strong><%= @constellation.name %></p>
-    <p><strong>Image URL: </strong><%= @constellation.image_url %></p>
-    <p><strong>Description: </strong><%= @constellation.description %></p>
-    <p><strong>Light Years Away from Earth: </strong><%= @constellation.light_years_away_from_earth %></p>
-
-<%= link_to 'Edit', edit_constellation_path(@constellation) %>
-<%= link_to 'Delete', constellation_path(@constellation), method: :delete %>
-<br>
-<%= link_to 'Back', constellations_path %>

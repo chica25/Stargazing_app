@@ -1,15 +1,29 @@
-    <%= form_for(constellation) do |f|  %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+    <%=form_for(constellation) do |f|%>
+        <%=f.label :name%>
+        <%=f.text_field :name%>
         <br><br>
-        <%= f.label :image_url %>
-        <%= f.text_field :image_url %>
+        <%=f.label :image_url%>
+        <%=f.text_field :image_url%>
         <br><br>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
+        <%=f.label :description%>
+        <%=f.text_field :description%>
         <br><br>
-        <%= f.label :light_years_away_from_earth %>
-        <%= f.number_field :light_years_away_from_earth %>
+        <%=f.label :light_years_away_from_earth%>
+        <%=f.number_field :light_years_away_from_earth%>
+<!--
+        <h2>Stargazing</h2>
+        <%=f.fields_for :stargazings, Stargazing.new do |stargazing_fields|%>
+            <%=stargazing_fields.label :location%>
+            <%=stargazing_fields.text_field :location%>
+            <br><br>
+            <%=stargazing_fields.label :weather%>
+            <%=stargazing_fields.number_field :weather%>
+            <br><br>
+            <%=stargazing_fields.label :time%>
+            <%=stargazing_fields.time_field :time%>
+        <%end%>
+        -->
         <br><br>
-        <%= f.submit 'Submit new list' %>
-    <% end %>
+        <%=f.submit "Submit New List"%>
+   
+    <%end%>

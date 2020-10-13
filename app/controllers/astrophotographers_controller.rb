@@ -1,6 +1,19 @@
-# class AstrophotographersController < ApplicationController
-#     before_action :set_params, only: [:edit]
+class AstrophotographersController < ApplicationController
+    #  before_action :set_params, only: [:edit]
+        def new
+            @astrophotographer = Astrophotographer.new
+        end
 
+        def create
+           @astrophotographer = Astrophotographer.new(astro_params)
+            if @astrophotographer.save
+                session[:astrophotographer_id] = @astrophotographer.id
+                redirect_to constellations_path
+            else
+                render :new
+            end
+        end
+            
 
 #     def index
 #         @astrophotographers = Astrophotographer.all
@@ -44,12 +57,12 @@
    
     # end
 
-#     private
-#     def astro_params
-#         params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
-#     end
+    private
+    def astro_params
+        params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
+    end
 
 #     def set_params
 #         @astrophotographer = Astrophotographer.find(params[:id])
-#     end
-# end
+    # end
+end

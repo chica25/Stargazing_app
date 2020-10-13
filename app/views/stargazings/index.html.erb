@@ -1,0 +1,6 @@
+<h1>Constellation Lists</h1>
+<%@stargazings.each do |stars|%>
+    <p><%=link_to stars.name, constellation_stargazings_path(stars)%></p>
+<%end%>
+<br>
+<%=link_to 'Add Constellation', new_constellation_path%>

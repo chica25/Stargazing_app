@@ -1,5 +1,6 @@
 <h1>Constellation Lists</h1>
-   <% @constellations.each do |cons| %>
-      <p><%= link_to cons.name, constellation_path(cons) %></p>
-<% end %>
-   <%= link_to 'Add Constellation', new_constellation_path %>
+   <%@constellations.each do |cons|%>
+      <p><%=link_to cons.name, constellation_path(cons)%></p>
+<%end%>
+   <%=link_to 'Add Constellation', new_constellation_path%>
+
