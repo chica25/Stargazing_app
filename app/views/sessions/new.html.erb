@@ -1,3 +1,8 @@
+
+<div class="flash-error">
+<%=flash[:error] if flash[:error]%>
+</div>
+
 <h1>Log In</h1>
 <%=form_for :astrophotographer do |f|%>
     <%=f.label :username%>
@@ -7,6 +12,12 @@
     <%=f.password_field :password%>
     <br><br>
     <%=f.submit 'Login'%>
+    <%=button_to 'Login with Google', '/auth/google_oauth2'%>
 <%end%> 
 
-<%=button_to 'Log in with Google', '/auth/google_oauth2'%>
+
+<style>
+.flash-error {
+    color: red;
+}
+</style>

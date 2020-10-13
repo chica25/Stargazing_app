@@ -1,15 +1,19 @@
  class SessionsController < ApplicationController
 
+     def home
+     end
+
      def new
          @astrophotographer = Astrophotographer.new
     end
 
     def create
-         @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
-        if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
-          session[:astrophotographer_id] = @astrophotographer.id
-            redirect_to stargazings_path
+         astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
+        if astrophotographer && astrophotographer.authenticate(params[:astrophotographer][:password])
+          session[:astrophotographer_id] = astrophotographer.id
+          redirect_to astrophotographer_path(astrophotographer)
          else
+          flash[:error] = "wrong login. Please try again."
             render :new
         end
      end

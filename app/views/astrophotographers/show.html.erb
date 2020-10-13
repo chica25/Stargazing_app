@@ -1,0 +1,10 @@
+
+<h2>Welcome back, <%=current_user.username.capitalize%></h2>
+
+<%=form_for :astrophotographer do |f|%>
+<%=f.label :profile_image%>
+<%= f.text_field :profile_image %>
+<br><br>
+<%=f.label :bio%>
+<%= f.text_area :bio%>
+<%end%>

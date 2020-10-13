@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-
+get '/astrophotographers/:id', to: 'astrophotographers#show', as: :home
 
  #get '/about', to: 'session#show', as: :home
 
 
-  resources :astrophotographers
+  resources :astrophotographers, except: [:index]
   #resources :sighting, only: [:index]
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'

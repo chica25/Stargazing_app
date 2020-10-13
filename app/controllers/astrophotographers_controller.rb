@@ -1,48 +1,24 @@
 class AstrophotographersController < ApplicationController
-    #  before_action :set_params, only: [:edit]
-        def new
-            @astrophotographer = Astrophotographer.new
-        end
-
-        def create
-           @astrophotographer = Astrophotographer.new(astro_params)
-            if @astrophotographer.save
-                session[:astrophotographer_id] = @astrophotographer.id
-                redirect_to constellations_path
-            else
-                render :new
-            end
-        end
-            
-
-#     def index
-#         @astrophotographers = Astrophotographer.all
-#     end
-
-#     def show
-#         @astrophotographer = Astrophotographer.find(params[:id])
-#         if !@astrophotographer 
-#             redirect_to rooth_path
-#         end
-#     end
-
-
-#     #loads the signup form
-#     def new
-#         @astrophotographer = Astrophotographer.new 
-#     end
-
-#     #signup
-#     def create
-#         @astrophotographer = Astrophotographer.new(astro_params)
-#         if @astrophotographer.save
-#             session[:astrophotographer_id] = @astrophotographer_id
-#             redirect_to astrophotographer_path
-#         else
-#             render :signup
-#         end
-#     end
+    before_action :set_params, only: [:show]
     
+    def new
+        @astrophotographer = Astrophotographer.new
+    end
+
+    def create
+        @astrophotographer = Astrophotographer.new(astro_params)
+        if @astrophotographer.save
+            session[:astrophotographer_id] = @astrophotographer.id
+            redirect_to constellations_path
+        else
+            render :new
+        end
+    end
+
+    def show
+        @astrophotographer = Astrophotographer.find_by_id(params[:id])
+        redirect_to '/' if !@astrophotographer
+    end
    
     # def edit 
     # end
@@ -53,16 +29,12 @@ class AstrophotographersController < ApplicationController
     #     redirect_to astrophotographer_path(@astrophotographer)
     # end
 
-    # def destroy
-   
-    # end
-
     private
     def astro_params
         params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
     end
 
-#     def set_params
-#         @astrophotographer = Astrophotographer.find(params[:id])
-    # end
+     def set_params
+         @astrophotographer = Astrophotographer.find_by_id(params[:id])
+     end
 end
