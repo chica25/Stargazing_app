@@ -1,8 +1,5 @@
  class SessionsController < ApplicationController
 
-     def home
-     end
-
      def new
          @astrophotographer = Astrophotographer.new
     end
@@ -11,9 +8,9 @@
          astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
         if astrophotographer && astrophotographer.authenticate(params[:astrophotographer][:password])
           session[:astrophotographer_id] = astrophotographer.id
-          redirect_to astrophotographer_path(astrophotographer)
+          redirect_to root_path
          else
-          flash[:error] = "wrong login. Please try again."
+          flash.now[:error] = "wrong login. Please try again."
             render :new
         end
      end

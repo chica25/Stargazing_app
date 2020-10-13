@@ -52,7 +52,7 @@ Update
 Step 1
 user crud, sessions, authentication
 user profile with image and bio
-apply active storage
+* Apply active storage (maybe)
 
 Step 2
 Include validations in all models 
@@ -61,7 +61,7 @@ views page - form partials, errors messages
 
 Step 3 
 ActiveRecord scope method
-Omniauth
+Omniauth √
 Refactor code
 
 

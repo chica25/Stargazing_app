@@ -1,3 +1,5 @@
+#before_action :
+
 class ConstellationsController < ApplicationController
     before_action :set_cons, only: [:show, :edit]
 

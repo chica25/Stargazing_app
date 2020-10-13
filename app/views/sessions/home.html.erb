@@ -1,6 +1,23 @@
+<%if current_user%>
+<h2>Welcome back, <%=current_user.username.capitalize%></h2>
+<%if current_user.profile_image && current_user.bio%>
+    <%=image_tag current_user.profile_image%>
+    <p><%=current_user.bio%></p>
+<%else%>
+    <p>Please update profile</p>
+    <%=form_for current_user do |f|%>
+        <%=f.label :profile_image%>
+        <%= f.text_field :profile_image %>
+        <br><br>
+        <%=f.label :bio%>
+        <%= f.text_area :bio%>
+        <%=f.submit%>
+    <%end%>
+<%end%>
 
-<h1>Welcome</h1>
+<br>
+<%=link_to "All Constellatons",constellations_path%>
+<%else%>
+    <p>Welcome!</p>
+<%end%>
 
-<%= link_to "Signup", signup_path %><br>
-
-<%= link_to "Log in", login_path %>

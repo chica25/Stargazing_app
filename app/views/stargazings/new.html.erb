@@ -1,6 +1,6 @@
 
 <h2><%=@constellation.name%></h2>
-<%=form_for([@contellation, @stargazing]) do |f|%>
+<%=form_for([@constellation, @stargazing]) do |f|%>
         <%=f.label :location%>
         <%=f.text_field :location%>
         <%=f.label :weather%>
