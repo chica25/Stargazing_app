@@ -8,7 +8,7 @@ class StargazingsController < ApplicationController
     
     def create
         #byebug
-        @stargazing = current_user.stargazing.new(stargaze_params)
+        @stargazing = current_user.stargazings.new(stargaze_params)
         if @stargazing.save
             redirect_to [@constellation, @stargazing]
         else

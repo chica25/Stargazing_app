@@ -1,6 +1,6 @@
 <h1>New Constellation</h1>
 
-<%if@constellation.errors.any?%>
+<%if @constellation.errors.any?%>
         <div class= "error">
         <h2><%=pluralize(@constellation.errors.count, 'error')%>
         prohibited this constellation from being saved:
