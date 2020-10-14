@@ -1,4 +1,5 @@
  class SessionsController < ApplicationController
+     skip_before_action :redirect_if_not_logged_in
 
      def new
          @astrophotographer = Astrophotographer.new
@@ -27,7 +28,7 @@
 
     def destroy
      session.clear
-     redirect_to root_path
+     redirect_to login_path
     end
 
     protected 

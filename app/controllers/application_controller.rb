@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
 
      def logged_in?
-     !session[:astrophotographer_id]
+     !!session[:astrophotographer_id]
      end
 
     def redirect_if_not_logged_in
-        redirect_to '/' if !logged_in?
+        redirect_to login_path unless !logged_in?
      end
 
      #private

@@ -1,4 +1,5 @@
 class AstrophotographersController < ApplicationController
+    skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
     before_action :set_params, only: [:show, :edit]
     
     def new
@@ -22,10 +23,11 @@ class AstrophotographersController < ApplicationController
 
     def show
         set_params
-        #@astrophotographer = Astrophotographer.find_by_id(params[:id])
-        redirect_to constellation_stargazing_path  
-        # if !@astrophotographer
+        @astrophotographer = Astrophotographer.find_by_id(params[:id])
+        #redirect_to constellation_stargazing_path  
+         #if !@astrophotographer
     end
+
    
     def edit
     end 
@@ -37,7 +39,6 @@ class AstrophotographersController < ApplicationController
         redirect_to astrophotographer_path(@astrophotographer)
         else
             redirect_to astrophotographer_path
-        #redirect_to '/'
         end
     end
 
