@@ -21,18 +21,24 @@ class AstrophotographersController < ApplicationController
     end
 
     def show
-        @astrophotographer = Astrophotographer.find_by_id(params[:id])
-        # redirect_to '/welcome' if !@astrophotographer
+        set_params
+        #@astrophotographer = Astrophotographer.find_by_id(params[:id])
+        redirect_to constellation_stargazing_path  
+        # if !@astrophotographer
     end
    
     def edit
-   
-    end
+    end 
 
     def update
         @astrophotographer = Astrophotographer.find(params[:id])
         @astrophotographer.update(astro_params)
-        redirect_to '/'
+        if @astrophotographer.current_user
+        redirect_to astrophotographer_path(@astrophotographer)
+        else
+            redirect_to astrophotographer_path
+        #redirect_to '/'
+        end
     end
 
     private
@@ -41,6 +47,6 @@ class AstrophotographersController < ApplicationController
     end
 
     def set_params
-        @astrophotographer = Astrophotographer.find(params[:id])
+        @astrophotographer = Astrophotographer.find_by_id(params[:id])
     end
 end

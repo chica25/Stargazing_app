@@ -17,7 +17,7 @@ class ConstellationsController < ApplicationController
     def create
        @constellation = Constellation.new(cons_params)
        if @constellation.save
-         redirect_to new_constellation_stargazing_path(@constellation)
+         redirect_to constellation_stargazings_path(@constellation, @stargazings)
         else
           render :new
          end
@@ -35,7 +35,7 @@ class ConstellationsController < ApplicationController
     def destroy
         @constellation = Constellation.find_by_id(params[:id])
         @constellation.destroy
-        redirect_to constellation_path
+        redirect_to constellations_path
     end
 
     private

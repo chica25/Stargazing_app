@@ -1,5 +1,10 @@
 <%=link_to "Home", root_path%>
-<%=link_to "Astrophotographers", astrophotographers_path%>
+<%=link_to "Astrophotographers", astrophotographer_path%>
 
-<h1>test</h1>
+<h2>About <%=current_user.username.capitalize%></h2>
+<h2><%=@astrophotographer.profile_image%></h2>
+<h2>Bio <%=@astrophotographer.bio%></h2>
+<br>
+<h3>View Constellation</h3>
+
  

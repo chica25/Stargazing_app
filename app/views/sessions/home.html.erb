@@ -9,14 +9,18 @@
         <%=f.label :profile_image%>
         <%= f.text_field :profile_image %>
         <br><br>
-        <%=f.label :bio%>
+       <%=f.label :bio%>
         <%= f.text_area :bio%>
         <%=f.submit%>
     <%end%>
 <%end%>
 
 <br>
+<%=link_to "Astrophotographers", astrophotographers_path%>
+<br><br>
 <%=link_to "All Constellatons",constellations_path%>
+<br><br>
+ <%=link_to "Add a Constellaton and Stargazing", new_constellation_path(@constellation)%>
 <%else%>
     <p>Welcome!</p>
 <%end%>

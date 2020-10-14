@@ -1,6 +1,7 @@
 <h1>Welcome, <%=current_user.username.capitalize%></h1>
-<%@stargazings.each do |stars|%>
-    <p><%=link_to stars.name, constellation_stargazings_path(stars)%></p>
+<%@stargazings.each do |star|%>
+    <p><%=link_to star.name, constellation_stargazing_path(star)%></p>
 <%end%>
 <br>
 <%=link_to 'Add Constellation', new_constellation_path%>
+

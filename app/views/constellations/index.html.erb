@@ -2,5 +2,8 @@
    <%@constellations.each do |cons|%>
       <p><%=link_to cons.name, constellation_path(cons)%></p>
 <%end%>
-   <%=link_to 'Add Constellation', new_constellation_path%>
 
+
+ 
+
+<%=link_to "Add a Constellaton and Stargazing", new_constellation_path(@constellation)%>

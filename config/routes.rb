@@ -11,8 +11,8 @@ get '/auth/:provider/callback', to: 'sessions#omniauth'
 get '/signup', to: 'astrophotographers#new'
 post '/signup', to: 'astrophotographers#create'
   
-get '/astrophotographers/:id', to: 'astrophotographers#show'
-patch '/astrophotographers/:id', to: 'astrophotographers#update'
+# get '/astrophotographers/:id', to: 'astrophotographers#show'
+# patch '/astrophotographers/:id', to: 'astrophotographers#update'
 
   resources :astrophotographers
   #resources :sighting, only: [:index]

@@ -7,25 +7,30 @@ class StargazingsController < ApplicationController
     end
     
     def create
+        #byebug
         @stargazing = current_user.stargazings.new(stargaze_params)
         if @stargazing.save
-            redirect_to [@constellation, @stargazing]
+            #redirect_to [@constellation, @stargazing]
+            redirect_to constellation_stargazings_path
         else
             render :new
         end
     end
 
     def index
-        @stargazings = if params[:constellation_id]
-            Stargazing.find_by_constellation_id(params[:constellation_id]).alpha_order
-        else
-            current_user.stargazings
-            #Stargazing.all
-        end
+        #byebug
+        #@stargazings = if params[:constellation_id]
+           # Stargazing.find_by_constellation_id(params[:constellation_id]).alpha_order
+           #redirect_to constellation_stargazings_path
+        #else
+            #current_user.stargazings
+            @stargazings = Stargazing.all
+        #end
     end
 
     def show
-        # @stargazing = @constellation.stargazings.find_by_id(params[:id])
+       
+         @stargazing = @constellation.stargazings.find_by_id(params[:id])
     end
 
     private 
@@ -39,7 +44,7 @@ class StargazingsController < ApplicationController
          end
 
          def set_stargazing
-            @stargazing = @constellation.stargazing.find_by_id(params[:id])
+            @stargazing = @constellation.stargazings.find_by_id(params[:id])
          end
     end
 
