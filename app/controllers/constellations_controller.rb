@@ -8,6 +8,9 @@ class ConstellationsController < ApplicationController
     end
 
     def show
+        redirect_if_not_logged_in
+        @constellation = Constellation.find_by_id(params[:id])
+        redirect_to '/' if @astrophotographer
     end
 
     def new
@@ -15,7 +18,8 @@ class ConstellationsController < ApplicationController
     end
     
     def create
-       @constellation = Constellation.new(cons_params)
+       #@constellation = Constellation.new(cons_params)
+       @constellation = Constellation.build(cons_params)
        if @constellation.save
          redirect_to constellation_stargazings_path(@constellation, @stargazings)
         else
