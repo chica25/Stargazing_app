@@ -22,7 +22,7 @@ class AstrophotographersController < ApplicationController
 
     def show
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
-        redirect_to '/' if !@astrophotographer
+        # redirect_to '/welcome' if !@astrophotographer
     end
    
     def edit
