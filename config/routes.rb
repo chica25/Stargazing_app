@@ -20,7 +20,8 @@ post '/signup', to: 'astrophotographers#create'
   resources :stargazings
   
     resources :constellations do
-        resources :stargazings
+      resources :stargazings
+        #resources :stargazings, except: [:index]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

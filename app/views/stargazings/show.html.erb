@@ -1,8 +1,13 @@
-<h1>All Stargazings</h1>
 
-<h1><%=@constellation.stargazings.name%></h1>
-<p>Location:<%=@stargazings.location%></p>
-<p>Weather: <%=@stargazings.weather%></p>
-<p>Time: <%=@stargazings.time%></p>
-<a href= "<%= stargazings_path(@stargazing)%>">More info</a>
+<h1>New Stargaze</h1>
+<h1><%=@stargazing.name%></h1>
+<br>
+  <h2> <%=@stargazing.location%></h2>
+    <p> Location: <%=@stargazing.location%></p>
+    <p>Weather: <%= @constellation.weather%></p>
+    <p>Time: <%= @constellation.time%></p>
+<%=link_to "Edit", edit_stargazing_path(@stargazing)%>
 
+<%=link_to 'Add Constellation', new_constellation_path%>
+<%=link_to 'All Constellation', constellations_path%>
+<%=link_to 'All stargazings', stargazings_path%>

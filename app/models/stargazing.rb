@@ -8,6 +8,6 @@ class Stargazing < ApplicationRecord
     end
 
     def self.alpha_order
-        order('location')
+        order('weather')
     end
 end

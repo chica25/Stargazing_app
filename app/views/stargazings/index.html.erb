@@ -1,8 +1,12 @@
-<h1>Welcome, <%=current_user.username.capitalize%></h1>
-<%@constellation.stargazings.each do |star|%>
-    <p><%=link_to star.name, constellation_stargazings_path(@stargazings)%></p>
+
+<h1>All Stargazings</h1>
+    <%@stargazings.each do |star|%>
+    <p>Location:<%=star.location%></p>
+    <p>Weather: <%=star.weather%></p>
+    <p>Time: <%=star.time%></p>
 <%end%>
-<br>
+
+<br><br>
 <%=link_to 'Add Constellation', new_constellation_path%>
 <%=link_to 'All Constellation', constellations_path%>
 

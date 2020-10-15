@@ -20,7 +20,7 @@
 <br><br>
 <%=link_to "All Constellatons",constellations_path%>
 <br><br>
- <%=link_to "Add a Constellaton and Stargazing", new_constellation_path(@constellation)%>
+ <%=link_to "Add a Constellaton", new_constellation_path(@constellation)%> or <%=link_to "a Stargazing", new_stargazing_path(@stargazing)%>
 <%else%>
     <p>Welcome!</p>
 <%end%>

@@ -1,5 +1,3 @@
-#before_action :
-
 class ConstellationsController < ApplicationController
     before_action :set_cons, only: [:show, :edit]
 
@@ -8,9 +6,7 @@ class ConstellationsController < ApplicationController
     end
 
     def show
-        #redirect_if_not_logged_in
         @constellation = Constellation.find_by_id(params[:id])
-        #redirect_to '/' if @astrophotographer
     end
 
     def new
@@ -20,7 +16,7 @@ class ConstellationsController < ApplicationController
     def create
        @constellation = Constellation.new(cons_params)
        if @constellation.save
-         redirect_to constellations_path(@constellation, @stargazings)
+         redirect_to constellation_path(@constellation)
         #redirect_to constellation_stargazings_path
         else
           render :new

@@ -1,13 +1,15 @@
-<!--
 
-<h2><%=@constellation.name%></h2>
-<%=form_for([@constellation, @stargazing]) do |f|%>
+<h3>Record New a Stargazing to your list!</h3>
+<%=form_for(@stargazing) do |f|%>
         <%=f.label :location%>
         <%=f.text_field :location%>
         <%=f.label :weather%>
         <%=f.number_field :weather%>
         <%=f.label :time%>
         <%=f.time_field :time%>
-        <%=f.submit%>
+        <%=f.submit%>     
 <%end%>
--->
+
+<%=link_to 'All Stargazings', stargazings_path%>
+<br>
+<%=link_to 'Home', root_path%>

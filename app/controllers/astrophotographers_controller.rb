@@ -10,8 +10,8 @@ class AstrophotographersController < ApplicationController
         @astrophotographer = Astrophotographer.new(astro_params)
         if @astrophotographer.save
             session[:astrophotographer_id] = @astrophotographer.id
-            redirect_to root_path
-
+            redirect_to root_path(@astrophotographer) 
+            #redirect_to astrophotographer_path #=> /astrophotographers/#{@astrophotographer.id} - views/show page
         else
             render :new
         end
@@ -22,12 +22,11 @@ class AstrophotographersController < ApplicationController
     end
 
     def show
-        set_params
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
-        #redirect_to constellation_stargazing_path  
-         #if !@astrophotographer
+        redirect_to constellation_stargazing_path  
+         if !@astrophotographer
     end
-
+end
    
     def edit
     end 
@@ -43,6 +42,7 @@ class AstrophotographersController < ApplicationController
     end
 
     private
+
     def astro_params
         params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
     end
