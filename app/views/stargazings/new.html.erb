@@ -1,10 +1,29 @@
 
-<h3>Record New a Stargazing to your list!</h3>
+<h3>Record a New list!</h3>
 <%=form_for(@stargazing) do |f|%>
-        <%=f.label :location%>
+        <%if @constellation_id%>
+           <%=f.hidden_field :constellation_id, value: @constellation_id%>
+        <%else%>
+                <%=f.fields_for :constellation, Constellation.new do |cons|%>
+                <%=cons.text_field :name%>
+                <br><br>
+                <%=cons.label :image_url%>
+                <%=cons.text_field :image_url%>
+                <br><br>
+                <%=cons.label :description%>
+                <%=cons.text_field :description%>
+                <br><br>
+                <%=cons.label :light_years_away_from_earth%>
+                <%=cons.number_field :light_years_away_from_earth%>
+                <br><br>
+        <%end%>
+    <%end%>
+              <%=f.label :location%>
         <%=f.text_field :location%>
+           <br><br>
         <%=f.label :weather%>
         <%=f.number_field :weather%>
+           <br><br>
         <%=f.label :time%>
         <%=f.time_field :time%>
         <%=f.submit%>     

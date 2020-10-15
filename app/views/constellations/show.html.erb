@@ -1,7 +1,7 @@
 <h1>New Constellation</h1>
 
 <br>
-  <h2> <%=@constellation.name%></h2>
+  <h2><%=@constellation.name%></h2>
     <p>Image URL: <%= @constellation.image_url%></p>
     <p>Description: <%= @constellation.description%></p>
     <p>Light Years Away from Earth: <%=@constellation.light_years_away_from_earth%></p>
@@ -9,5 +9,5 @@
 <%=link_to "Delete", constellation_path(@constellation), method: :delete%>
 <br><br>
 
-
-<%=link_to "All Constellations", constellations_path%>
+<%=link_to "All List", constellation_stargazings_path(@constellation)%>
+<%=link_to "List New a Constellation", new_constellation_stargazing_path(@constellation)%>

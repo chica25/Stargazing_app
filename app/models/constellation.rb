@@ -1,6 +1,6 @@
 class Constellation < ApplicationRecord
     has_many :stargazings
-    # has_many :astrophotographers, through: :stargazings
+    has_many :astrophotographers, through: :stargazings
     validates :name, presence: true
     validates :name, presence: { message: "is required" }
     validates :description, presence: true, length: { maximum: 200 }

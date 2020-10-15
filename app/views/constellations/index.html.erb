@@ -1,6 +1,6 @@
 <h1>Constellation Lists</h1>
    <%@constellations.each do |cons|%>
-      <p><%=link_to cons.name, constellations_path(cons)%></p>
+      <p><%=link_to cons.name, constellation_path(cons)%></p>
       
 <%end%>
 
