@@ -6,11 +6,9 @@
         <%=f.label :bio%>
         <%=f.text_field :bio%>
         <br><br>
-    <% if current_user.id == @astrophotographer.id%>
-        <%=button_to "Delete", astrophotographer_path(@astrophotographer), :method => :delete, data:{confirm: "Are you sure you want to delete your account?"}%>
-    <%else%>
-        <%flash[:error] = "You're not authorize to edit this page."%>
-    <%end%> 
+        <%=f.submit%>      
 <%end%> 
+<%=button_to "Delete", astrophotographer_path(@astrophotographer), :method => :delete, data:{confirm: "Are you sure you want to delete your account?"}%>    
+
 
 

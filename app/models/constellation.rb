@@ -1,10 +1,9 @@
 class Constellation < ApplicationRecord
     has_many :stargazings
     has_many :astrophotographers, through: :stargazings
-    validates :name, presence: true
-    validates :name, presence: { message: "is required" }
-    validates :description, presence: true, length: { maximum: 200 }
-    accepts_nested_attributes_for :stargazings
+    validates :constellation_name, presence: true
+    validates :constellation_name, presence: { message: "is required" }
+     validates :description, presence: true, length: { maximum: 200 }
    # add validation for description lenght or character limit 
 
 

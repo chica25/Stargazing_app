@@ -33,7 +33,8 @@ class AstrophotographersController < ApplicationController
     end 
 
     def update
-        @astrophotographer = Astrophotographer.find(params[:id])
+        @astrophotographer = Astrophotographer.find_by_id(params[:id])
+        #@astrophotographer = Astrophotographer.find(id: params[:id])
         if @astrophotographer.update(astro_params)
             redirect_to astrophotographer_path(@astrophotographer)
         else

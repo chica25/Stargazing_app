@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
         redirect_to login_path unless logged_in?
      end
 
-     #private
     def current_user
         @current_user ||= Astrophotographer.find_by_id(session[:astrophotographer_id])
         #if the current user is true it will set it equal to the user in the current session
