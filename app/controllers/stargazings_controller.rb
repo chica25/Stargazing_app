@@ -1,10 +1,10 @@
 class StargazingsController < ApplicationController
-    before_action :set_star
-   # before_action :set_stargazing, only: [:show]
+    before_action :set_stargazing, only: [:show]
 
     def new 
-        @constellation_id = params[:constellation_id] if params[:constellation_id]
         @stargazing = Stargazing.new
+        # @constellation_id = params[:constellation_id] if params[:constellation_id]
+        # @stargazing = Stargazing.new
     end
 #
     # def new
@@ -20,7 +20,6 @@ class StargazingsController < ApplicationController
         #byebug
         @stargazing = Stargazing.new(stargaze_params)
         if @stargazing.save
-            # redirect_to (@stargazing)
             redirect_to stargazing_path(@stargazing)
         else
             render :new
@@ -28,17 +27,17 @@ class StargazingsController < ApplicationController
     end
 
     def show
-        @stargazing = Stargazing.find_by_id(params[:id])
+        #@stargazing = Stargazing.find_by_id(params[:id])
       #   @stargazing = @constellation.stargazings.find_by_id(params[:constellation_id])
     end
 
      def index
-        @stargazing = if params[:constellation_id]
-            @stargazings = Stargazing.find_by_constellation_id([:constellation_id])
-        else
+        # @stargazing = if params[:constellation_id]
+        #     @stargazings = Stargazing.find_by_constellation_id([:constellation_id])
+        # else
             @stargazings = Stargazing.all
         end
-    end
+    # end
    
         #byebug
         #@stargazings = if params[:constellation_id]
@@ -70,10 +69,10 @@ class StargazingsController < ApplicationController
     private 
 
         def stargaze_params
-            params.require(:stargazing).permit(:location, :weather, :time, :constellation_id)
+            params.require(:stargazing).permit(:location, :weather, :time)
         end
 
-        def set_star
+        def set_stargazing
             @stargazing = Stargazing.find_by_id(params[:id])
          end
 

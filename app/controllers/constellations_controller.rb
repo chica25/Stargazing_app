@@ -2,7 +2,8 @@ class ConstellationsController < ApplicationController
     before_action :set_cons, only: [:show, :edit]
 
     def index
-        @constellations = Constellation.all
+        # @constellations = Constellation.all
+        @constellations = Constellation.search(params[:search])
     end
 
     def show

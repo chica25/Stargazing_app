@@ -4,6 +4,9 @@
     <p>Location: <%=link_to star.location, stargazing_path(star)%></p>
     <p>Weather: <%=star.weather%></p>
     <p>Time: <%=star.time%></p>
+<br><br>
+<%=link_to 'Add Constellation', new_constellation_path%>
+<%=link_to 'All Constellation', constellations_path%>
 <%end%>
 
 <br><br>
@@ -17,3 +20,7 @@
 
 
       
+   <%@stargazings.each do |star|%>
+      <p><%=link_to @constellation_name, stargazing_path(star)%></p>
+      
+<%end%>

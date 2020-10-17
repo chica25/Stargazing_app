@@ -61,3 +61,4 @@ class AstrophotographersController < ApplicationController
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
     end
 end
+
