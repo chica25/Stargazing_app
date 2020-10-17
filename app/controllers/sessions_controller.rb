@@ -6,9 +6,9 @@
     end
 
     def create
-         astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
-        if astrophotographer && astrophotographer.authenticate(params[:astrophotographer][:password])
-          session[:astrophotographer_id] = astrophotographer.id
+         @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
+        if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
+          session[:astrophotographer_id] = @astrophotographer.id
           redirect_to root_path
          else
           flash.now[:error] = "wrong login. Please try again."

@@ -1,5 +1,5 @@
 class StargazingsController < ApplicationController
-    before_action :set_constellation
+    before_action :set_star
    # before_action :set_stargazing, only: [:show]
 
     def new 
@@ -73,12 +73,9 @@ class StargazingsController < ApplicationController
             params.require(:stargazing).permit(:location, :weather, :time, :constellation_id)
         end
 
-        def set_constellation
+        def set_star
             @stargazing = Stargazing.find_by_id(params[:id])
          end
 
-         def set_stargazing
-            @stargazing = @constellation.stargazing.find_by_id(params[:id])
-         end
     end
 

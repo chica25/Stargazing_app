@@ -1,6 +1,6 @@
 class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
-    before_action :set_params, only: [:show, :edit]
+    before_action :find_astro, only: [:show, :edit]
     
     def new
         @astrophotographer = Astrophotographer.new
@@ -22,22 +22,31 @@ class AstrophotographersController < ApplicationController
     end
 
     def show
-        @astrophotographer = Astrophotographer.find_by_id(params[:id])
-        redirect_to constellation_stargazing_path  
-         if !@astrophotographer
+       # byebug
+        @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
+        if !@astrophotographer
+            redirect_to astrophotographers_path
+        end
     end
-end
    
     def edit
     end 
 
     def update
         @astrophotographer = Astrophotographer.find(params[:id])
-        @astrophotographer.update(astro_params)
-        if @astrophotographer.current_user
-        redirect_to astrophotographer_path(@astrophotographer)
+        if @astrophotographer.update(astro_params)
+            redirect_to astrophotographer_path(@astrophotographer)
         else
-            redirect_to astrophotographer_path
+            render :edit
+        end
+    end
+
+    def destroy
+        @astrophotographer = Astrophotographer.find_by_id(params[:id])
+        if @astrophotographer.delete
+            redirect_to signup_path
+        else
+            redirect_to root_path
         end
     end
 
@@ -47,7 +56,7 @@ end
         params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
     end
 
-    def set_params
+    def find_astro
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
     end
 end

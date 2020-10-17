@@ -1,8 +1,7 @@
 <h1>All Astrophotographers</h1>
 <% @astrophotographers.each do |astro|%>
-    <p><%= link_to astro.username, astrophotographer_path(@astrophotographers)%></p>
-    <p><%= astro.profile_image %></p>
-    <p><%= astro.bio%></p>
+    <p><%= link_to astro.username, astrophotographer_path(astro)%></p>
+
 <%end%>
 
  

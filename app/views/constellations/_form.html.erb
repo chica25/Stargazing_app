@@ -1,7 +1,23 @@
+          
+<%if @constellation.errors.any?%>
+        <div class= "error">
+        <h2><%=pluralize(@constellation.errors.count, 'error')%>
+        prohibited this constellation from being saved:
+        <%=@constellation.errors.full_messages.each do |m|%>
+       <%=m%>
+      
+        <%end%>
+    </div>
+<%end%>
+
+  
   <%=form_for(constellation) do |f|%>
-        <%=f.label :name%>
-        <%=f.text_field :name%>
+        <%=f.label :constellation_name%>
+        <%=f.text_field :constellation_name%>
         <br><br>
+          <%=f.label :star_name%>
+        <%=f.text_field :star_name%>
+      
         <%=f.label :image_url%>
         <%=f.text_field :image_url%>
         <br><br>
@@ -12,5 +28,16 @@
         <%=f.number_field :light_years_away_from_earth%>
         <br><br>
         <%=f.submit "Submit New List"%>
+         <% if current_user%>
+    <%=f.submit "Edit Profile"%>
+    <%else%>
+    <%flash[:error] = "You're not authorize to edit this page."%>
+      <%end%>
+        <%end%>
 
-    <%end%>
+
+<style>
+.error {
+    color: red;
+}
+</style>
