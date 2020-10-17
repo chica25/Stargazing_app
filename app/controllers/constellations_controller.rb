@@ -3,7 +3,8 @@ class ConstellationsController < ApplicationController
 
     def index
         # @constellations = Constellation.all
-        @constellations = Constellation.search(params[:search])
+         @constellations = Constellation.name_titles
+        #=> total length is greater than a specifi number. 
     end
 
     def show
@@ -14,6 +15,10 @@ class ConstellationsController < ApplicationController
         @constellation = Constellation.new
     end
     
+    def search 
+        @constellations = Constellation.by_titles.where("title LIKE ?", "%" + params[:q] + "%")
+    end
+
     def create
        @constellation = Constellation.new(cons_params)
        if @constellation.save

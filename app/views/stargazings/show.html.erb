@@ -1,13 +1,14 @@
 
-<h1>New Stargaze</h1>
-<br>
-<%=@stargazing.constellation.constellation_name %>
     <p>Location: <%=@stargazing.location%></p>
     <p>Weather: <%= @stargazing.weather%></p>
     <p>Time: <%= @stargazing.time%></p>
 <%=link_to "Edit", edit_stargazing_path(@stargazing)%>
+<%=link_to "Delete", stargazing_path(@stargazing), method: :delete%>
 
 
-<%=link_to 'Add Constellation', new_stargazing_path%>
-<%=link_to 'All Constellation', constellations_path%>
+<%=link_to 'Add Stargazing', new_stargazing_path%>
+<br>
+<%=link_to 'All Constellations', constellations_path%>
+<br>
 <%=link_to 'Back to All stargazings', stargazings_path%>
+

@@ -1,30 +1,31 @@
 class StargazingsController < ApplicationController
-    before_action :set_stargazing, only: [:show]
+    before_action :set_stargazing
 
     def new 
         @stargazing = Stargazing.new
-        # @constellation_id = params[:constellation_id] if params[:constellation_id]
-        # @stargazing = Stargazing.new
+        @constellation_id = params[:constellation_id] if params[:constellation_id]
+        @stargazing = Stargazing.new
     end
-#
-    # def new
-    #     if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
-    #         @stargazing = @constellation.stargazings.build
-    #     else
-    #         @error = "Does not exist!"
-    #         @stargazing = Stargazing.new
-    #     end
-     
- 
+
     def create
-        #byebug
-        @stargazing = Stargazing.new(stargaze_params)
-        if @stargazing.save
-            redirect_to stargazing_path(@stargazing)
+       # @stargazing = Stargazing.new(stargaze_params)
+        if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
+            @stargazing = @constellation.stargazings.build
         else
-            render :new
+            @error = "Does not exist!"
+            @stargazing = Stargazing.new
         end
     end
+ 
+    # def create
+    #     #byebug
+    #     @stargazing = Stargazing.new(stargaze_params)
+    #     if @stargazing.save
+    #         redirect_to stargazing_path(@stargazing)
+    #     else
+    #         render :new
+    #     end
+    # end
 
     def show
         #@stargazing = Stargazing.find_by_id(params[:id])
@@ -51,20 +52,33 @@ class StargazingsController < ApplicationController
 
  
     def edit 
-        set_constellation
+        set_stargazing
     end
 
     def update
         @stargazing = Stargazing.find_by_id(params[:id])
-        @stargazing.update(stargaze_params)
+        if @stargazing.update(stargaze_params)
         redirect_to stargazing_path(@stargazing)
+        else
+            render :edit
     end
+end
+    # def destroy
+    #     @astrophotographer = Astrophotographer.find_by_id(params[:id])
+    #     if @astrophotographer.delete
+    #         redirect_to signup_path
+    #     else
+    #         redirect_to root_path
+    #     end
+    # end
 
     def destroy
+        #byebug
         @stargazing = Stargazing.find_by_id(params[:id])
-        @stargazing.destroy
-        redirect_to stragazings_path
+        @stargazing.delete
+        redirect_to stargazings_path
     end
+    
 
     private 
 

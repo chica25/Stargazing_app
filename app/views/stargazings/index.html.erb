@@ -1,26 +1,19 @@
 
 <h1>All Stargazings</h1>
     <%@stargazings.each do |star|%>
+    <p><%=link_to @constellation_name, stargazing_path(star)%></p>
     <p>Location: <%=link_to star.location, stargazing_path(star)%></p>
     <p>Weather: <%=star.weather%></p>
     <p>Time: <%=star.time%></p>
-<br><br>
-<%=link_to 'Add Constellation', new_constellation_path%>
-<%=link_to 'All Constellation', constellations_path%>
-<%end%>
+    <br><br>
+    <%=link_to 'Add Constellation', new_constellation_path%>
+    <%=link_to 'All Constellation', constellations_path%>
+ <%end%>
 
-<br><br>
-<%=link_to 'Add Constellation', new_constellation_path%>
-<%=link_to 'All Constellation', constellations_path%>
+    <br><br>
+    <%=link_to 'Add Constellation', new_constellation_path%>
+    <%=link_to 'All Constellation', constellations_path%>
 
-<br><br>
-<%=link_to 'Add a Stargazing', new_stargazing_path%>
-<%=link_to 'Back to All stargazings', stargazings_path%>
-
-
-
-      
-   <%@stargazings.each do |star|%>
-      <p><%=link_to @constellation_name, stargazing_path(star)%></p>
-      
-<%end%>
+    <br><br>
+    <%=link_to 'Add a Stargazing', new_stargazing_path%>
+    <%=link_to 'Back to Stargazings', stargazings_path%>
