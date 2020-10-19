@@ -1,7 +1,7 @@
 
 <%=form_for(stargazing) do |f| %>
     <%if @constellation%>
-        <%=f.hidden_field :constellation_id, value:@constellation.id%>
+        <%=f.hidden_field :constellation_id, value: @constellation.id%>
     <%end%>
     <%=f.label :location%>
     <%=f.text_field :location%>

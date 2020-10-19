@@ -11,7 +11,6 @@ class AstrophotographersController < ApplicationController
         if @astrophotographer.save
             session[:astrophotographer_id] = @astrophotographer.id
             redirect_to root_path(@astrophotographer) 
-            #redirect_to astrophotographer_path #=> /astrophotographers/#{@astrophotographer.id} - views/show page
         else
             render :new
         end
@@ -31,7 +30,7 @@ class AstrophotographersController < ApplicationController
    
     def edit
     end 
-
+   
     def update
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
         #@astrophotographer = Astrophotographer.find(id: params[:id])

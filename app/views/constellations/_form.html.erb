@@ -29,7 +29,7 @@
         <br><br>
         <%=f.submit "Submit New List"%>
          <% if current_user%>
-    <%=f.submit "Edit Profile"%>
+    <%=f.submit "Edit"%>
     <%else%>
     <%flash[:error] = "You're not authorize to edit this page."%>
       <%end%>
