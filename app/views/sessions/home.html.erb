@@ -11,17 +11,29 @@
         <br><br>
        <%=f.label :bio%>
         <%= f.text_area :bio%>
-        <%=f.submit "Submit profile"%>
+        <%=f.submit "Edit profile"%>
     <%end%>
 <%end%>
 
 <br>
+<%=link_to "My List",constellations_path%>
+<br><br>
 <%=link_to "Astrophotographers", astrophotographers_path%>
 <br><br>
-<%=link_to "All Constellatons",constellations_path%>
+<%=link_to "All Constellatons and Stargazings",constellations_path%>
 <br><br>
- <%=link_to "Add a Constellaton", new_constellation_path(@constellation)%> or <%=link_to "a Stargazing", new_stargazing_path(@stargazing)%>
+ <%=link_to "Add a Constellaton", new_constellation_path(@constellation)%>
 <%else%>
     <p>Welcome!</p>
 <%end%>
 
+<style>
+
+img {
+height: 400px;
+ width: 200 px
+}
+
+
+
+</style>

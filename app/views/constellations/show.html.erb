@@ -1,5 +1,5 @@
 
-<br>
+<br><br>
     <p><strong>Constellation Name:</strong> <%=@constellation.constellation_name%></p>
     <p>Star Name: <%=@constellation.star_name%> </p>
     <p><%= image_tag @constellation.image_url%></p>
@@ -9,7 +9,17 @@
 <%=link_to "Delete", constellation_path(@constellation), method: :delete%>
 <br><br>
 
-<%=link_to "Add a Stargazing", new_constellation_stargazing_path(@constellation)%>
+<%=link_to "Add Stargazing", new_constellation_stargazing_path(@constellation)%>
 <br><br>
-<%=link_to "All List", constellation_stargazings_path(@constellation)%>
-ok
+<%=link_to "All List", constellations_path(@constellation)%>
+
+
+<style>
+img {
+height: 400px;
+ width: 200 px
+}
+
+
+
+</style>

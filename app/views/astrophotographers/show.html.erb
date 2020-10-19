@@ -4,10 +4,12 @@
 <h2>About <%=@astrophotographer.username.capitalize%></h2>
 
 <%=image_tag @astrophotographer.profile_image%>
-<h2>Bio <%=@astrophotographer.bio%></h2>
+<h2>Bio <h2><%=@astrophotographer.bio%></h2></h2>
 
 <div class="edit">
 <%= link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
+<br><br>
+<%= link_to "All Astrophotographers", astrophotographers_path(@astrophotographer)%>
 </div>
 
 <style>
@@ -16,7 +18,6 @@ height: 150px;
  width: 100 px
 }
 
-.edit {
-}
+
 
 </style>

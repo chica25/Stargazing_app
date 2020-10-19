@@ -1,22 +1,8 @@
-<h1>Constellation Lists</h1>
-
-<!--
-<%form_tag constellations_path, :method => 'get' do%>
-<p>
-   <%=text_field_tag :search, params[:search]%>
-   <%=submit_tag "Search", :constellation_name => nil%>
-</p>
-<%end%>
--->
-
-   <%@constellations.each do |cons|%>
-      <p><%=link_to cons.constellation_name, constellation_path(cons)%></p>
-      
-<%end%>
-
-<%=link_to 'Add a Constellation', new_constellation_path%>
- 
-
-<%=link_to 'Add a Stargazing', new_stargazing_path%>
-
 <%=link_to 'home', root_path%>
+<h1>Constellation Lists</h1>
+   <%@constellations.each do |cons|%>
+   <p><%=link_to cons.constellation_name, constellation_path(cons)%></p>
+         
+   <%end%>
+<%=link_to 'Add a Constellation', new_constellation_path%>
+

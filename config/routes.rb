@@ -15,7 +15,7 @@ post '/signup', to: 'astrophotographers#create'
 # patch '/astrophotographers/:id', to: 'astrophotographers#update'
 
   resources :astrophotographers
-  #resources :sighting, only: [:index]
+  #resources :stargazings, only: [:index]
   
   resources :stargazings
   

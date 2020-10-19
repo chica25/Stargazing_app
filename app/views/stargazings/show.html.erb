@@ -1,7 +1,9 @@
 
-    <p>Location: <%=@stargazing.location%></p>
-    <p>Weather: <%= @stargazing.weather%></p>
-    <p>Time: <%= @stargazing.time%></p>
+<h1>Show Page</h1>
+<%=@stargazing.constellation.constellation_name%>
+<p>Location: <%=@stargazing.location%></p>
+<p>Weather: <%= @stargazing.weather%></p>
+<p>Time: <%= @stargazing.time%></p>
 <%=link_to "Edit", edit_stargazing_path(@stargazing)%>
 <%=link_to "Delete", stargazing_path(@stargazing), method: :delete%>
 
