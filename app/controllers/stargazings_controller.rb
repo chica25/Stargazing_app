@@ -17,10 +17,18 @@ class StargazingsController < ApplicationController
 
      def index
         # @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
-
-     @stargazings = Stargazing.all
+      @stargazings = Stargazing.all
      end
-   # @comments = Comment.find_by_skatespot_id(params[:skatespot_id])
+ 
+
+    #  def index
+    #    if params[:constellation_id]
+    #     @stargazings = Constellation.find(params[:constellation_id]).stargazings
+    #    else
+    #     stargazings = Stargazing.all
+    #    end
+    # end
+     
 
     # def show
     #     @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
@@ -29,20 +37,15 @@ class StargazingsController < ApplicationController
     def edit 
         set_stargazing
     end
-    # redirect_to skatespot_comments_path(@comment.skatespot, @comment)
 
     def update
-       # byebug
-        set_stargazing
+        @stargazing = Stargazing.find_by_id(params[:id])
         if current_user.stargazings.update(stargaze_params)
-            redirect_to constellation_stargazing_path(@stargazing)
-           
+            redirect_to constellation_stargazing_path(@stargazing)   
         else
             render :edit
          end
     end
-
-   
 
     def destroy
         @stargazing = Stargazing.find_by_id(params[:id])

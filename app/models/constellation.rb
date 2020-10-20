@@ -10,7 +10,8 @@ class Constellation < ApplicationRecord
    # scope :by_titles, -> (n = 11 ) { where("LENGTH(constellation_name) < ?", n)} 
   
    #ActiveRecord query 2
-   scope :alpha, -> { order(:constellation_name)}
+#    scope :alpha, -> { order(:constellation_name)}
+    scope :sorted, -> { order(:constellation_name) }
 
     # def self.search(search)
     #     if search

@@ -1,4 +1,4 @@
-          
+         <!--
 <%if @constellation.errors.any?%>
         <div class= "error">
         <h2><%=pluralize(@constellation.errors.count, 'error')%>
@@ -9,6 +9,7 @@
         <%end%>
     </div>
 <%end%>
+-->
 
   
   <%=form_for(constellation) do |f|%>
@@ -27,14 +28,9 @@
         <%=f.label :light_years_away_from_earth%>
         <%=f.number_field :light_years_away_from_earth%>
         <br><br>
-        <%=f.submit "Submit New List"%>
-         <% if current_user%>
-    <%=f.submit "Edit"%>
-    <%else%>
-    <%flash[:error] = "You're not authorize to edit this page."%>
-      <%end%>
-        <%end%>
+        <%=f.submit "Submit"%>
 
+-->
 
 <style>
 .error {

@@ -2,7 +2,22 @@
 <h1>Constellation Lists</h1>
    <%@constellations.each do |cons|%>
    <p><%=link_to cons.constellation_name, constellation_path(cons)%></p>
-         
-   <%end%>
-<%=link_to 'Add a Constellation', new_constellation_path%>
+<%end%>    
 
+<%=link_to 'Add a Constellation', new_constellation_path%>
+    
+<%if current_user == logged_in?%>      
+  <%=link_to "Edit", edit_constellation_path(@constellation)%>
+  <%=link_to "Delete", constellation_path(@constellation), method: :delete%>
+<%end%>
+
+
+<!--
+<% if current_user == logged_in?%>      
+  <%=link_to "Edit", edit_constellation_path(@constellation)%>
+  <%=link_to "Delete", constellation_path(@constellation), method: :delete%>
+    <%else%>
+      <%flash[:error] = "You're not authorize to edit this page."%>
+  <%end%>
+<%end%>
+-->

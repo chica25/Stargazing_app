@@ -8,10 +8,12 @@ class AstrophotographersController < ApplicationController
 
     def create
         @astrophotographer = Astrophotographer.new(astro_params)
-        if @astrophotographer.save
+        if @astrophotographer.valid?
             session[:astrophotographer_id] = @astrophotographer.id
+            flash.now[:error] = "Your account was create"
             redirect_to root_path(@astrophotographer) 
         else
+            flash.now[:error] = "Please try again"
             render :new
         end
     end
@@ -24,7 +26,7 @@ class AstrophotographersController < ApplicationController
        # byebug
         @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
         if !@astrophotographer
-            redirect_to astrophotographers_path
+            redirect_to root_path
         end
     end
    
@@ -53,7 +55,7 @@ class AstrophotographersController < ApplicationController
     private
 
     def astro_params
-        params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
+        params.require(:astrophotographer).permit(:username, :password, :password_confirmation, :profile_image, :bio)
     end
 
     def find_astro
