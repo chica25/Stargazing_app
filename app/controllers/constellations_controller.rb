@@ -18,7 +18,6 @@ class ConstellationsController < ApplicationController
     
     def create
        @constellation = Constellation.new(cons_params)
-        # test for errror byebug
        if @constellation.save
          redirect_to constellation_path(@constellation)
         else
