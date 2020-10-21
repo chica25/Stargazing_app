@@ -5,7 +5,8 @@ class Astrophotographer < ApplicationRecord
     validates :username, presence: true, uniqueness: { case_sensitive: false }  
     validates :username, length: {minimum: 4 }
     validates :password, length: { in: 5..9 }
-    
+    validates :bio, presence: true, length: { maxium: 100 }
+
     
     def self.from_omniauth(auth) #=> user that's found or user that's created
         find_or_create_by(username: auth[:info][:email]) do |user|
