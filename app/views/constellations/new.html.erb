@@ -1,11 +1,8 @@
-<h1>New Constellation</h1>
-<%=render partial: 'cons', locals: {constellation: @constellation} %>
 
 <%if @constellation.errors.any?%>
-    <h2>
+    <h3>
         <p><%=pluralize(@constellation.errors.count, "error")%></p>
-        prohibited this Constellation from being saved:
-    </h2>
+    </h3>
         <ul>
             <%@constellation.errors.full_messages.each do |m|%>
             <li><%=m%></li>
@@ -14,7 +11,8 @@
 <%end%>
 
 
-
+<h1>New Constellation</h1>
+<%=render partial: 'cons', locals: {constellation: @constellation} %>
 
 
 <style>
