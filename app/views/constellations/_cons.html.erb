@@ -1,3 +1,22 @@
+
+  <%if @constellation.errors.any?%>
+      <h3>
+          <p><%=pluralize(@constellation.errors.count, "error")%></p>
+      </h3>
+          <ul>
+              <%@constellation.errors.full_messages.each do |m|%>
+              <p><li><%=m%></li></p>
+        <%end%>
+          </ul>
+  <%end%>
+</div>
+
+<style>
+.field_with_errors > input {
+  border: 1px solid red;
+}
+</style>
+ 
   <%=form_for constellation do |f|%>
         <%=f.label :constellation_name%>
         <%=f.text_field :constellation_name%>

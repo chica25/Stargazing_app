@@ -1,7 +1,7 @@
 class Constellation < ApplicationRecord
     has_many :stargazings
     has_many :astrophotographers, through: :stargazings
-    validates :constellation_name, presence: true
+    validates :constellation_name, presence: { message: 'Please enter Constellation Name' }
     validates :description, presence: true, length: { maximum: 200 }
 
     #ActiveRecord query 1
