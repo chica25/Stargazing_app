@@ -2,26 +2,15 @@ class ConstellationsController < ApplicationController
     before_action :set_cons, only: [:show, :edit]
 
      def index
-    #      #scope 1
+         #scope 1
          @constellations = Constellation.all.sorted
-
-    #     # scope 2
-    #      #@constellations = Constellation.by_titles
-    #     #=> total length is greater than a specific number. 
+         # scope 2
+          #@constellations = Constellation.by_titles
+        #=> total length is greater than a specific number. 
      end
 
      def show
     end
-
-
-    # search function
-    # def index
-    #     if params[:constellation_name]
-    #       @constellation = Constellation.where('constellation_name LIKE ?', "%#{params[:constellation_name]}%")
-    #     else
-    #         @constellation = Constellation.all
-    #     end
-    # end
 
     def new
         @constellation = Constellation.new
@@ -29,6 +18,7 @@ class ConstellationsController < ApplicationController
     
     def create
        @constellation = Constellation.new(cons_params)
+        # test for errror byebug
        if @constellation.save
          redirect_to constellation_path(@constellation)
         else

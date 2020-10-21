@@ -6,14 +6,14 @@
     end
 
     def create
-         @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
-        if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
-          session[:astrophotographer_id] = @astrophotographer.id
-          redirect_to constellations_path(@constellation)
-         else
-          flash.now[:error] = "Wrong login. Please try again."
-            render :new
-        end
+          @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
+          if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
+               session[:astrophotographer_id] = @astrophotographer.id
+               redirect_to constellations_path(@constellation)
+          else
+               flash.now[:error] = "Wrong login. Please try again."
+               render :new
+          end
      end
 
      def omniauth
@@ -27,13 +27,13 @@
      end
 
     def destroy
-     session.clear if :astrophotographer_id
-     redirect_to login_path
+          session.clear if :astrophotographer_id
+          redirect_to login_path
     end
 
     protected 
 
     def auth
-     request.env['omniauth.auth']
+          request.env['omniauth.auth']
     end
 end

@@ -1,24 +1,10 @@
-     <!--
-<%if @constellation.errors.any?%>
-        <div class= "error">
-        <h2><%=pluralize(@constellation.errors.count, 'error')%>
-        prohibited this constellation from being saved:
-        <%=@constellation.errors.full_messages.each do |m|%>
-       <%=m%>
-      
-        <%end%>
-    </div>
-<%end%>
--->
-
-  
-  <%=form_for(constellation) do |f|%>
+  <%=form_for constellation do |f|%>
         <%=f.label :constellation_name%>
         <%=f.text_field :constellation_name%>
         <br><br>
-          <%=f.label :star_name%>
+        <%=f.label :star_name%>
         <%=f.text_field :star_name%>
-      
+       <br><br>
         <%=f.label :image_url%>
         <%=f.text_field :image_url%>
         <br><br>
@@ -28,11 +14,6 @@
         <%=f.label :light_years_away_from_earth%>
         <%=f.number_field :light_years_away_from_earth%>
         <br><br>
-        <%=f.submit "Submit"%>
+        <%=f.submit%>
 <%end%>
 
-<style>
-.error {
-    color: red;
-}
-</style>

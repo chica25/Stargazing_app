@@ -8,7 +8,6 @@ class AstrophotographersController < ApplicationController
 
     def create
         @astrophotographer = Astrophotographer.new(astro_params)
-        # byebug
         if @astrophotographer.save
             session[:astrophotographer_id] = @astrophotographer.id
             flash.now[:message] = "Your account was create"
@@ -24,7 +23,6 @@ class AstrophotographersController < ApplicationController
     end
 
     def show
-       # byebug
         @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
         if !@astrophotographer
             redirect_to root_path
@@ -36,7 +34,6 @@ class AstrophotographersController < ApplicationController
    
     def update
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
-        #@astrophotographer = Astrophotographer.find(id: params[:id])
         if @astrophotographer.update(astro_params)
             redirect_to astrophotographer_path(@astrophotographer)
         else

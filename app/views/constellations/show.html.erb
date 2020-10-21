@@ -1,18 +1,15 @@
 
-<br><br>
     <p><strong>Constellation Name:</strong> <%=@constellation.constellation_name%></p>
     <p><strong>Star Name:</strong> <%=@constellation.star_name%></p>
     <p><%=image_tag @constellation.image_url%></p>
     <p>Description: <%= @constellation.description%></p>
     <p>Light Years Away from Earth: <%=@constellation.light_years_away_from_earth%></p>
     <%=link_to "Edit", edit_constellation_path(@constellation)%>
-    <%=button_to "Delete", constellation_path(@constellation), method: :delete%>
-
-<br><br>
-
-<%=link_to "Add Stargazing", new_constellation_stargazing_path(@constellation)%>
-<br><br>
-<%=link_to "Constellation List", constellations_path(@constellation)%>
+        <%=button_to "Delete", constellation_path(@constellation), method: :delete%>
+    <br><br>
+    <%=link_to "Add Stargazing", new_constellation_stargazing_path(@constellation)%>
+    <br><br>
+    <%=link_to "Constellation List", constellations_path(@constellation)%>
 
 
 

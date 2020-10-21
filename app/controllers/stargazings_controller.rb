@@ -1,9 +1,9 @@
 class StargazingsController < ApplicationController
-    before_action :set_stargazing, only: [:edit]
+    before_action :set_stargazing, only: [:edit, :show]
 
     def index
-        # @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
-      @stargazings = Stargazing.all
+        @stargazings = Stargazing.all
+        #  @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
      end
     
     #  def index
@@ -14,11 +14,8 @@ class StargazingsController < ApplicationController
     #    end
     # end
 
-
-    # def show
-    #     @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
-    # end
-     
+     def show
+     end
 
     def new
         @stargazing = Stargazing.new
@@ -33,7 +30,7 @@ class StargazingsController < ApplicationController
             render :new
         end
     end
- 
+
     def edit 
         set_stargazing
     end
@@ -44,7 +41,8 @@ class StargazingsController < ApplicationController
             redirect_to constellation_stargazing_path(@stargazing)   
         else
             render :edit
-         end
+        end
+    end
 
     def destroy
         @stargazing = Stargazing.find_by_id(params[:id])
@@ -53,6 +51,7 @@ class StargazingsController < ApplicationController
     end
     
     private
+
     def stargaze_params
         params.require(:stargazing).permit(:location, :weather, :time, :constellation_id)
     end
