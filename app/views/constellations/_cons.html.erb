@@ -1,4 +1,4 @@
-         <!--
+     <!--
 <%if @constellation.errors.any?%>
         <div class= "error">
         <h2><%=pluralize(@constellation.errors.count, 'error')%>
@@ -29,8 +29,7 @@
         <%=f.number_field :light_years_away_from_earth%>
         <br><br>
         <%=f.submit "Submit"%>
-
--->
+<%end%>
 
 <style>
 .error {

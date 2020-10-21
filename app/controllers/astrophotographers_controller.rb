@@ -8,9 +8,10 @@ class AstrophotographersController < ApplicationController
 
     def create
         @astrophotographer = Astrophotographer.new(astro_params)
-        if @astrophotographer.valid?
+        # byebug
+        if @astrophotographer.save
             session[:astrophotographer_id] = @astrophotographer.id
-            flash.now[:error] = "Your account was create"
+            flash.now[:message] = "Your account was create"
             redirect_to root_path(@astrophotographer) 
         else
             flash.now[:error] = "Please try again"

@@ -11,7 +11,6 @@ class ConstellationsController < ApplicationController
      end
 
      def show
-        @constellation = Constellation.find_by_id(params[:id])
     end
 
 
@@ -24,7 +23,6 @@ class ConstellationsController < ApplicationController
     #     end
     # end
 
-   
     def new
         @constellation = Constellation.new
     end
@@ -39,8 +37,6 @@ class ConstellationsController < ApplicationController
     end
 
     def edit
-        #byebug
-       @constellation = Constellation.find_by_id(params[:id])
     end
 
     def update
@@ -59,7 +55,6 @@ class ConstellationsController < ApplicationController
     private
 
     def cons_params
-        # params.require(:constellation).permit(:constellation_name, :star_name, :image_url, :description, :light_years_away_from_earth, [:location, :weather, :time])
         params.require(:constellation).permit(:constellation_name, :star_name, :description, :light_years_away_from_earth, :image_url)
     end
 

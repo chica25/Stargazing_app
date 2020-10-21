@@ -5,19 +5,20 @@
     <p><%=image_tag @constellation.image_url%></p>
     <p>Description: <%= @constellation.description%></p>
     <p>Light Years Away from Earth: <%=@constellation.light_years_away_from_earth%></p>
-
-
+    <%=link_to "Edit", edit_constellation_path(@constellation)%>
+    <%=button_to "Delete", constellation_path(@constellation), method: :delete%>
 
 <br><br>
 
 <%=link_to "Add Stargazing", new_constellation_stargazing_path(@constellation)%>
 <br><br>
-<%=link_to "All List", constellations_path(@constellation)%>
+<%=link_to "Constellation List", constellations_path(@constellation)%>
+
 
 
 <style>
-img {
-height: 400px;
- width: 200 px
-}
+    img {
+    height: 400px;
+    width: 200 px
+    }
 </style>

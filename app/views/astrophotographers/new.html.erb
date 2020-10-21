@@ -1,21 +1,4 @@
+<h2>New form</h2>
 
-<div class="flash-error">
-<%=flash[:message] if flash[:error]%>
-</div>
+<%=render partial: 'astro', locals: {astrophotographer: @astrophotographer} %>
 
-<h1>Sign Up</h1>
-    <%=form_for :astrophotographer do |f|%>
-        <%=f.label :username%>
-        <%=f.text_field :username%>
-        <br><br>
-        <%=f.label :Password%>
-        <%=f.password_field :password%>
-        <br><br>
-        <%=f.submit "Login"%>
-    <%end%> 
-
-<style>
-.flash-error {
-    color: green;
-}
-</style>

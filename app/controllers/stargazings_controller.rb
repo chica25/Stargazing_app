@@ -1,5 +1,24 @@
 class StargazingsController < ApplicationController
-    before_action :set_stargazing
+    before_action :set_stargazing, only: [:edit]
+
+    def index
+        # @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
+      @stargazings = Stargazing.all
+     end
+    
+    #  def index
+    #    if params[:constellation_id]
+    #     @stargazings = Constellation.find(params[:constellation_id]).stargazings
+    #    else
+    #     stargazings = Stargazing.all
+    #    end
+    # end
+
+
+    # def show
+    #     @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
+    # end
+     
 
     def new
         @stargazing = Stargazing.new
@@ -14,25 +33,6 @@ class StargazingsController < ApplicationController
             render :new
         end
     end
-
-     def index
-        # @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
-      @stargazings = Stargazing.all
-     end
- 
-
-    #  def index
-    #    if params[:constellation_id]
-    #     @stargazings = Constellation.find(params[:constellation_id]).stargazings
-    #    else
-    #     stargazings = Stargazing.all
-    #    end
-    # end
-     
-
-    # def show
-    #     @stargazings = Stargazing.find_by_constellation_id(params[:constellation_id])
-    # end
  
     def edit 
         set_stargazing
@@ -45,11 +45,10 @@ class StargazingsController < ApplicationController
         else
             render :edit
          end
-    end
 
     def destroy
         @stargazing = Stargazing.find_by_id(params[:id])
-        @stargazing.delete
+        @stargazing.destroy
         redirect_to stargazings_path
     end
     
