@@ -1,6 +1,6 @@
 
 <h1>Show Page</h1>
-<%=@stargazing.constellation.constellation_name%>
+<h3><%=@stargazing.constellation.constellation_name%></h3>
 <p>Location: <%=@stargazing.location%></p>
 <p>Weather: <%= @stargazing.weather%></p>
 <p>Time: <%= @stargazing.time%></p>
@@ -8,9 +8,7 @@
 <%=link_to "Delete", stargazing_path(@stargazing), method: :delete%>
 
 
-<%=link_to 'Add Stargazing', new_stargazing_path%>
-<br>
-<%=link_to 'All Constellations', constellations_path%>
-<br>
-<%=link_to 'Back to All stargazings', stargazings_path%>
+<%=link_to 'Add Stargazing', new_constellation_stargazing_path%> | <%=link_to 'All stargazings', stargazings_path%> | <%=link_to 'All Constellations', constellations_path%>
+
+
 

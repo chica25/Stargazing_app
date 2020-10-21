@@ -16,10 +16,8 @@
 <%end%>
 
 <br>
-<%=link_to "My List",constellations_path%>
-<br><br>
-<%=link_to "Astrophotographers", astrophotographers_path%>
-<br><br>
+<%=link_to "My List",constellations_path%> |
+<%=link_to "Astrophotographers", astrophotographers_path%> |
  <%=link_to "Add a Constellaton", new_constellation_path(@constellation)%>
 <%else%>
     <p>Welcome!</p>

@@ -3,15 +3,12 @@
 
 <h1>All Stargazings</h1>
    <%@stargazings.each do |star|%>
-    <p><%=link_to star.constellation.constellation_name, stargazing_path(star)%></p>
+    <p><%=link_to star.constellations, stargazing_path(star)%></p>
     <p>Location: <%=star.location%></p>
     <p>Weather: <%=star.weather%></p>
     <p>Time: <%=star.time%></p>
     <br><br>
  <%end%>
     <br><br>
-    <%=link_to 'Add Constellation', new_constellation_path%>
-    <%=link_to 'All Constellation', constellations_path%>
-    <br><br>
-    <%=link_to 'Add a Stargazing', new_stargazing_path%>
-    <%=link_to 'Back to Stargazings', stargazings_path%>
+   <%=link_to 'Add a Stargazing', new_stargazing_path%> | <%=link_to 'Add a Constellation', new_constellation_path%> | 
+      <%=link_to 'All Constellation', constellations_path%> | <%=link_to 'All Stargazings', stargazings_path%>

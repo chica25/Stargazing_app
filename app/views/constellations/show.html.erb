@@ -4,13 +4,14 @@
     <p><%=image_tag @constellation.image_url%></p>
     <p><strong>Description:</strong> <%= @constellation.description%></p>
     <p><strong>Light Years Away from Earth:</strong> <%=@constellation.light_years_away_from_earth%></p>
+    
+    <%if current_user%>
     <%=link_to "Edit", edit_constellation_path(@constellation)%>
         <%=button_to "Delete", constellation_path(@constellation), method: :delete%>
-    <br><br>
-    <%=link_to "Add Stargazing", new_constellation_stargazing_path(@constellation)%> |
-   
-    <%=link_to "Back to Constellations", constellations_path(@constellation)%>
+    <%end%>
 
+    <br><br>
+    <%=link_to "Add Stargazing", new_constellation_stargazing_path(@constellation)%> | <%=link_to "Back to Constellations", constellations_path(@constellation)%>
 
 
 <style>

@@ -2,11 +2,7 @@ class ConstellationsController < ApplicationController
     before_action :set_cons, only: [:show, :edit]
 
      def index
-         #scope 1
          @constellations = Constellation.all.sorted
-         # scope 2
-          #@constellations = Constellation.by_titles
-        #=> total length is greater than a specific number. 
      end
 
      def show
@@ -18,7 +14,7 @@ class ConstellationsController < ApplicationController
     
     def create
        @constellation = Constellation.new(cons_params)
-       if @constellation.save
+       if @constellation
          redirect_to constellation_path(@constellation)
         else
           render :new

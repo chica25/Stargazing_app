@@ -1,13 +1,15 @@
 class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
     before_action :find_astro, only: [:show, :edit]
+
+    # layout 'astro_1.jpg'
     
     def new
         @astrophotographer = Astrophotographer.new
     end
 
     def create
-        @astrophotographer = Astrophotographer.new(astro_params)
+        @astrophotographer = Astrophotographer.new(astro_params)  
         if @astrophotographer.save
             session[:astrophotographer_id] = @astrophotographer.id
             flash.now[:message] = "Your account was create"
@@ -53,7 +55,7 @@ class AstrophotographersController < ApplicationController
     private
 
     def astro_params
-        params.require(:astrophotographer).permit(:username, :password, :password_confirmation, :profile_image, :bio)
+        params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
     end
 
     def find_astro

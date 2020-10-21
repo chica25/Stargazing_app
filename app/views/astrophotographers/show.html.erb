@@ -6,11 +6,11 @@
 <%=image_tag @astrophotographer.profile_image%>
 <h2>Bio <h2><%=@astrophotographer.bio%></h2></h2>
 
-<div class="edit">
+
 <%= link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
 <br><br>
 <%= link_to "All Astrophotographers", astrophotographers_path(@astrophotographer)%>
-</div>
+
 
 <style>
 img {

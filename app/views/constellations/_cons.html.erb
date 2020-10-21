@@ -29,9 +29,15 @@
         <%=f.submit%>
 <%end%>
 
+    <br><br>
+    <%=link_to "Add Stargazing", new_stargazing_path(@stargazing)%> |
+   
+    <%=link_to "Back to Constellations", constellations_path(@constellation)%>
+
+
 <style>
-.field_with_errors > input {
-  border: 1px solid red;
+.field_with_errors {
+  color: red;
 }
 </style>
  
