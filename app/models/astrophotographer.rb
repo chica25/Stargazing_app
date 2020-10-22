@@ -12,3 +12,6 @@ class Astrophotographer < ApplicationRecord
     end
 
 end
+
+
+

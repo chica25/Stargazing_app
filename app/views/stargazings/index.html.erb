@@ -1,6 +1,6 @@
 
-<%=link_to 'Home', root_path%>
-
+<%=link_to 'Home', root_path%> | <%=link_to 'Add a Stargazing', new_stargazing_path%> | <%=link_to 'All Constellation', constellations_path%> | <%=link_to 'Add a Constellation', new_constellation_path%> 
+ 
 <h1>All Stargazings</h1>
    <%@stargazings.each do |star|%>
     <p><%=link_to star.constellations, stargazing_path(star)%></p>
@@ -10,5 +10,3 @@
     <br><br>
  <%end%>
     <br><br>
-   <%=link_to 'Add a Stargazing', new_stargazing_path%> | <%=link_to 'Add a Constellation', new_constellation_path%> | 
-      <%=link_to 'All Constellation', constellations_path%> | <%=link_to 'All Stargazings', stargazings_path%>

@@ -1,4 +1,10 @@
-<%if current_user%>
+
+
+<%=link_to "Astrophotographers", astrophotographers_path(@constellation)%> |
+<%=link_to "Constellations", constellations_path(@constellation)%>|
+<%=link_to "Add a Constellation", new_constellation_path(@constellation)%> 
+
+ <br><br>
 <h2>Welcome back, <%=current_user.username.capitalize%></h2>
 <%if current_user.profile_image && current_user.bio%>
     <%=image_tag current_user.profile_image%>
@@ -16,9 +22,7 @@
 <%end%>
 
 <br>
-<%=link_to "My List",constellations_path%> |
-<%=link_to "Astrophotographers", astrophotographers_path%> |
- <%=link_to "Add a Constellaton", new_constellation_path(@constellation)%>
+
 <%else%>
     <p>Welcome!</p>
 <%end%>

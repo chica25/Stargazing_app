@@ -1,8 +1,5 @@
 
-<%=form_for stargazing do |f| %>
-<%if @constellation%>
-    <%=f.hidden_field :constellation_id, value: @constellation.id%>
-<%end%>
+  <%=form_for stargazing do |f|%>
     <%=f.label :location%>
     <%=f.text_field :location%>
     <br><br>
@@ -15,6 +12,8 @@
 <%end%>
 <br>
 
-<%=link_to 'Home', root_path%>
-
-
+<style>
+h2 {
+ color: purple;
+}
+</style>

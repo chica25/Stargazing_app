@@ -1,3 +1,16 @@
-<h1>New Stargazing</h1>
+
+<%=link_to 'Home', root_path%>
+<%=link_to "Astrophotographers", astrophotographers_path(@stargazing)%> |
+<%=link_to "Stargazings", stargazings_path(@stargazing)%> |
+<%=link_to "Constellation", constellations_path(@constellation)%> |
+<%=link_to "Add a Constellation", new_constellation_path(@constellation)%> 
+
+<h2>Log in New Stargazing!</h2>
 <%=render partial: 'star', locals: {stargazing: @stargazing}%>
+
+
+
+
+
+
 

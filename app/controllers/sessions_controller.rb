@@ -5,9 +5,9 @@
 
      def new
          @astrophotographer = Astrophotographer.new
-    end
+     end
 
-    def create
+     def create
           @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
           if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
                session[:astrophotographer_id] = @astrophotographer.id
@@ -28,14 +28,14 @@
           end
      end
 
-    def destroy
+     def destroy
           session.clear if :astrophotographer_id
           redirect_to login_path
-    end
+     end
 
-    protected 
+     protected 
 
-    def auth
+     def auth
           request.env['omniauth.auth']
-    end
+     end
 end

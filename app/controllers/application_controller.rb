@@ -16,4 +16,5 @@ class ApplicationController < ActionController::Base
         # @current_user ||= Astrophotographer.find_by_id(id: session[:astrophotographer_id])
         #if the current user is true it will set it equal to the user in the current session
     end
+
 end
