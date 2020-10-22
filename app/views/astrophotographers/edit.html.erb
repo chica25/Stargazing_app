@@ -1,4 +1,4 @@
-
+<% if @astrophotographer.id == current_user.id%>
 <%=form_for @astrophotographer do |f|%>
         <%=f.label :profile_image%>
         <%=f.text_field :profile_image%>
@@ -8,7 +8,8 @@
         <br><br>
         <%=f.submit "Update profile"%>      
 <%end%> 
+
 <%=button_to "Delete", astrophotographer_path(@astrophotographer), :method => :delete, data:{confirm: "Are you sure you want to delete your account?"}%>    
 
-
+<%end%>
 

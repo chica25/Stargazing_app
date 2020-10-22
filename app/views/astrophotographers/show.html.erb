@@ -6,7 +6,7 @@
 <%=image_tag @astrophotographer.profile_image%>
 <h2>Bio <h2><%=@astrophotographer.bio%></h2></h2>
 
-<% if current_user%>
+<% if @astrophotographer.id == current_user.id%>
     <%= link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
 <%end%>
 <br><br>
