@@ -3,8 +3,10 @@
 <%=link_to "back to Astrophotographers", astrophotographers_path%>
 <h2>About <%=@astrophotographer.username.capitalize%></h2>
 <img src="<%=@astrophotographer.profile_image%>"/>
-<br><br>
-    <%=link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
+<h2>Bio <%=@astrophotographer.bio%></h2>
+
+ <%=link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
+
 
 
 

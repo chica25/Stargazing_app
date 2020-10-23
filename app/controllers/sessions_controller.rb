@@ -11,7 +11,7 @@
                session[:astrophotographer_id] = @astrophotographer.id
                redirect_to constellations_path(@constellation)
           else
-               flash.now[:error] = "Wrong login. Please try again."
+                flash.now[:error] = "Wrong login. Please try again."
                render :new
           end
      end
@@ -27,7 +27,7 @@
      end
 
      def destroy
-          session.clear if :astrophotographer_id
+          session.clear 
           redirect_to login_path
      end
 
