@@ -1,5 +1,5 @@
 class ConstellationsController < ApplicationController
-    before_action :set_cons, only: [:show, :edit]
+    before_action :set_cons, only: [:show, :edit, :update, :delete]
 
      def index
          @constellations = Constellation.all.sorted
@@ -25,16 +25,21 @@ class ConstellationsController < ApplicationController
     end
 
     def update
-        @constellation = Constellation.find_by_id(params[:id])
-        @constellation.update(cons_params)
-
+        set_cons #=>@constellation = Constellation.find_by_id(params[:id])
+        if @constellation.update(cons_params)
         redirect_to constellation_path(@constellation)
+        else
+            render :edit
+        end
     end
 
     def destroy
-        @constellation = Constellation.find_by_id(params[:id])
-        @constellation.destroy
-        redirect_to constellations_path
+        set_cons #=>@constellation = Constellation.find_by_id(params[:id])
+        if @constellation.destroy
+            redirect_to constellations_path
+        else 
+            flash.now[:error] = "Please try again"
+        end
     end
 
     private

@@ -6,13 +6,13 @@
 
     <p><strong>Constellation Name:</strong> <%=@constellation.constellation_name%></p>
     <p><strong>Star Name:</strong> <%=@constellation.star_name%></p>
-    <p><%=image_tag @constellation.image_url%></p>
+     <p><img src="<%=@constellation.image_url%>"/></p>
+  
     <p><strong>Description:</strong> <%= @constellation.description%></p>
     <p><strong>Light Years Away from Earth:</strong> <%=@constellation.light_years_away_from_earth%></p>
     
-    <%if @constellation.id == current_user.id%>
-        <%=link_to "Edit", edit_constellation_path(@constellation)%> | <%=link_to "Delete", constellation_path(@constellation), method: :delete%> |  <%=link_to "Add a Stargazing", new_stargazing_path(@stargzing)%> 
-    <%end%>
+    <%=link_to "Edit", edit_constellation_path(@constellation)%> | <%=link_to "Delete", constellation_path(@constellation), method: :delete%> |  <%=link_to "Add a Stargazing", new_stargazing_path(@stargzing)%> 
+
 
 <style>
     img {

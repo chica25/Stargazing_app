@@ -1,8 +1,20 @@
 class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
-    before_action :find_astro, only: [:show, :edit]
+    before_action :set_astro, only: [:show, :edit, :update, :delete]
 
     # layout 'astro_1.jpg'
+
+    def index
+        @astrophotographers = Astrophotographer.all
+    end
+
+    def show
+        set_astro #=> @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
+   #@astrophotographer = Astrophotographer.find_by_id(params[:id]) 
+        # if !@astrophotographer
+        #     redirect_to root_path
+        end
+  
     
     def new
         @astrophotographer = Astrophotographer.new
@@ -20,22 +32,13 @@ class AstrophotographersController < ApplicationController
         end
     end
 
-    def index
-        @astrophotographers = Astrophotographer.all
-    end
-
-    def show
-        @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
-        if !@astrophotographer
-            redirect_to root_path
-        end
-    end
+   
    
     def edit
     end 
    
     def update
-        @astrophotographer = Astrophotographer.find_by_id(params[:id])
+        set_astro #=> @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
         if @astrophotographer.update(astro_params)
             redirect_to astrophotographer_path(@astrophotographer)
         else
@@ -44,7 +47,7 @@ class AstrophotographersController < ApplicationController
     end
 
     def destroy
-        @astrophotographer = Astrophotographer.find_by_id(params[:id])
+        set_astro #=> @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
         if @astrophotographer.delete
             redirect_to signup_path
         else
@@ -58,7 +61,7 @@ class AstrophotographersController < ApplicationController
         params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
     end
 
-    def find_astro
+    def set_astro
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
     end
 end
