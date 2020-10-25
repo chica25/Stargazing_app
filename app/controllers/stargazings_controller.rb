@@ -18,11 +18,47 @@ class StargazingsController < ApplicationController
     @stargazing = Stargazing.find_by_id(params[:id])
   end
 
+  
+     def index
+         if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:id])
+             @stargazings = Stargazing.find_by_id(params[:id])
+        else
+            #add flash error message
+           @stargazings = Stargazing.all
+        end
+    end
+
+   def edit
+      @stargazing = Stargazing.find_by_id(params[:id])
+   end
+
+
+   def update
+    set_star#=>@constellation = Constellation.find_by_id(params[:id])
+    if @stargazing.update(cons_params)
+    redirect_to stargazing_path(@stargazing)
+    else
+        render :edit
+    end
+end
+
+def destroy
+    set_cons #=>@constellation = Constellation.find_by_id(params[:id])
+    if @stargazing.destroy
+        redirect_to stargazings_path
+    else 
+        flash.now[:error] = "Please try again"
+    end
+end
+
+
+
     private
 
     def star_params
       params.require(:stargazing).permit(:location, :weather, :time, :constellation_id)
     end
+    
 
 end
 

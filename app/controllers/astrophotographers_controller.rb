@@ -5,7 +5,7 @@ class AstrophotographersController < ApplicationController
     # layout 'astro_1.jpg'
 
     def index
-        @astrophotographers = Astrophotographer.all
+        @astrophotographers = Astrophotographer.alpha
     end
 
     def show

@@ -7,7 +7,7 @@ class Stargazing < ApplicationRecord
     #     where(constellation_id: id)
     # end
 
-    def self.alpha_order
-        order('constellation_name')
-    end
+    # def self.alpha_order
+    #     order('constellation_name')
+    # end
 end
