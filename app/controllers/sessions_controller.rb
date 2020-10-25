@@ -11,7 +11,7 @@
                session[:astrophotographer_id] = @astrophotographer.id
                redirect_to constellations_path(@constellation)
           else
-                flash.now[:error] = "Wrong login. Please try again."
+               flash.now[:error] = "Wrong login. Please try again."
                render :new
           end
      end

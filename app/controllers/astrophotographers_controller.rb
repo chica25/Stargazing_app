@@ -27,7 +27,7 @@ class AstrophotographersController < ApplicationController
             flash.now[:message] = "Your account was created"
             redirect_to root_path(@astrophotographer) 
         else
-            flash.now[:error] = "Please try again"
+            flash.now[:error] = "Username is too short"
             render :new
         end
     end
@@ -56,7 +56,7 @@ class AstrophotographersController < ApplicationController
     private
 
     def astro_params
-        params.require(:astrophotographer).permit(:username, :password, :profile_image, :bio)
+        params.require(:astrophotographer).permit(:username, :password, :password_confirmation, :profile_image, :bio)
     end
 
     def set_astro

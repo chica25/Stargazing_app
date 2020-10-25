@@ -6,8 +6,6 @@ class CreateStargazings < ActiveRecord::Migration[6.0]
       t.string :location
       t.integer :weather
       t.integer :time
-
-      t.timestamps
     end
   end
 end

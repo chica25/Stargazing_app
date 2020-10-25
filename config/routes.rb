@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+# get 'stargazing/new'
 root 'sessions#home'
 
 get '/login', to: 'sessions#new'

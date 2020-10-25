@@ -1,11 +1,12 @@
 <%=link_to "Astrophotographers", astrophotographers_path(@constellation)%>|
 <%=link_to "Constellations", constellations_path(@constellation)%>|
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%>
+  
 
  <br><br>
 <h2>Welcome back, <%=current_user.username.capitalize%></h2>
 <%if current_user.profile_image && current_user.bio%>
-    <img src="<%=@current_user.profile_image%>" />
+    <img src="<%=current_user.profile_image%>" />
     <p><%=current_user.bio%></p>
 <%else%>
     <p>Please update profile</p>
