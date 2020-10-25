@@ -128,15 +128,6 @@ ul {
 }
 
 
-.img {
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  display:inline-block;
-  background-repeat: no-repeat;
-  font-family: 'Merriweather Sans', sans-serif;s
-  text-align: left;
-}
 
 
 </style> 
@@ -159,8 +150,25 @@ ul {
 
     <%= yield %>
 
-<div class= "img">
-<%= link_to image_tag('astro_1.jpg'), signup_path, class: "img"%>
+<style>
+h1 {
+  color: navy;
+  font-family: "Arial";
+  font-size: 24px;
+}
+    .img {
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  display:inline-block;
+  background-repeat: no-repeat;
+  font-family: Georgia;
+  text-align: left;
+}
+</style>
+
+<div class = "img">
+<%= link_to image_tag('astro_1.jpg'), signup_path %>
 </div>
   </body>
 </html>
