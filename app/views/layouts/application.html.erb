@@ -9,6 +9,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  
+
   <body>
 
 
@@ -157,8 +159,9 @@ ul {
 
     <%= yield %>
 
-
-
+<div class= "img">
+<%= link_to image_tag('astro_1.jpg'), signup_path, class: "img"%>
+</div>
   </body>
 </html>
 

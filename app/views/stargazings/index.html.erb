@@ -4,15 +4,16 @@
 <%=link_to "Constellations", constellations_path(@constellation)%> |
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%> 
 
-
-<h1>test</h1>
 <h1>Stargazing Lists</h1>
    <%@stargazings.each do |star|%>
+   <p>
    <ul>
-       <li><strong><%=link_to star.constellation.constellation_name%></strong></i>
+       <li><strong><%=link_to star.location, stargazing_path(star)%></strong></i>
         <li><%=star.location%></li>
         <li><%=star.weather%></li>
         <li><%=star.time%></li>
     </ul>
+    </p>
  <%end%>
+
 

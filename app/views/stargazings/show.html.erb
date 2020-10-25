@@ -6,13 +6,10 @@
 <%=link_to "Stargazings", stargazings_path(@stargazing)%>
 </div>
 
+<h2>All Stargazings</h2>
+<p><strong>Location:</strong> <%=@stargazing.location%></p>
+<p><strong>Weather:</strong> <%=@stargazing.weather%></p>
+<p><strong>Time:</strong> <%=@stargazing.time%></p>
 
-<h2>Your list</h2>
+    <%=link_to "Edit", edit_stargazing_path(@stargazing)%> | <%=link_to "Delete", stargazing_path(@stargazing), method: :delete%> 
 
-<h3><%=@stargazings.constellation.constellation_name%></h3>
-<p>Location: <%=@stargazing.location%></p>
-<p>Weather: <%=@stargazing.weather%></p>
-<p>Time: <%=@stargazing.time%></p>
-<%if current_user%>
-    <%=link_to "Edit", edit_stargazing_path(@stargazing)%> | <%=link_to "Delete", stargazing_path(@stargazing), method: :delete%> |  <%=link_to "Add a Stargazing", new_stargazing_path(@stargazing)%> 
-<%end%>
