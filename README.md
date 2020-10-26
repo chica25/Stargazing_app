@@ -1,25 +1,6 @@
-# README
+Welcome to my Rails Stargazing application, created especificially for Photographers and anyone that's interested in Astronomy. 
+Users can sign up by creating an account and password.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# rails_project
+To get started, please download the repository.
+run bundle install
+Access rails server by entering "rails s" without quotes, if the app doessn't open, you should install the yarn by typing "yarn install", after that the app should be running.

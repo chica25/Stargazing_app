@@ -1,3 +1,6 @@
+<%=link_to "Home", root_path%>
+<%=link_to "Constellations", constellations_path(@constellation)%> |
+<%=link_to "Stargazings", stargazings_path(@stargazing)%> 
 
 <%=form_for @astrophotographer do |f|%>
         <%=f.label :profile_image%>

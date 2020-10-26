@@ -2,17 +2,20 @@
 <div class="flash-message">
 <%=flash[:message] if flash[:message]%>
 </div>
-
 <h1>Welcome to Stagazing!</h1>
     <%=form_for :astrophotographer do |f|%>
         <%=f.label :username%>
         <%=f.text_field :username%>
-        <br><br>
         <%=f.label :Password%>
         <%=f.password_field :password%>
-        <br><br>
         <%=f.submit "Signup"%>
     <%end%> 
+
+<p>
+<div class="img">
+<%= link_to image_tag('astro_1.jpg'), signup_path %>
+</div>
+</p>
 
 <style>
 .message {

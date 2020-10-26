@@ -150,27 +150,39 @@ ul {
 
     <%= yield %>
 
+  </body>
+</html>
+
+
 <style>
+
 h1 {
   color: navy;
-  font-family: "Arial";
+  font-family: "midnightblue";
   font-size: 24px;
 }
-    .img {
+  .img {
   bottom: 0;
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display:inline-block;
   background-repeat: no-repeat;
-  font-family: Georgia;
-  text-align: left;
+
+
+  }
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
 }
 </style>
 
-<div class = "img">
-<%= link_to image_tag('astro_1.jpg'), signup_path %>
-</div>
-  </body>
-</html>
 
 

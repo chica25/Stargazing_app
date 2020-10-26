@@ -41,14 +41,14 @@ class StargazingsController < ApplicationController
     end
 end
 
-def destroy
-    set_star #=>@constellation = Constellation.find_by_id(params[:id])
-    if @stargazing.destroy
-        redirect_to stargazings_path
-    else 
-        flash.now[:error] = "Please try again"
-    end
-end
+# def destroy
+#     set_star #=>@constellation = Constellation.find_by_id(params[:id])
+#     if @stargazing.destroy
+#         redirect_to stargazings_path
+#     else 
+#         flash.now[:error] = "Please try again"
+#     end
+# end
 
     private
 

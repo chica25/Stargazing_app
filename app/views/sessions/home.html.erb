@@ -1,7 +1,6 @@
 <%=link_to "Astrophotographers", astrophotographers_path(@constellation)%>|
 <%=link_to "Constellations", constellations_path(@constellation)%>|
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%>
-  
 
  <br><br>
 <h2>Welcome back, <%=current_user.username.capitalize%></h2>
@@ -19,6 +18,7 @@
         <%=f.submit "Edit profile"%>
     <%end%>
 <%end%>
+
 
 <style>
 img {
