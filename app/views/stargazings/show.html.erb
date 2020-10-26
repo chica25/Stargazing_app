@@ -6,12 +6,10 @@
 <%=link_to "Stargazings", stargazings_path(@stargazing)%>
 </div>
 
-<h2>All Stargazings</h2>
+<h2></h2>
+<p><strong>Constellation Name:</strong> <%=@stargazing.constellation.constellation_name%></p>
 <p><strong>Location:</strong> <%=@stargazing.location%></p>
 <p><strong>Weather:</strong> <%=@stargazing.weather%></p>
 <p><strong>Time:</strong> <%=@stargazing.time%></p>
 
     <%=link_to "Edit", edit_stargazing_path(@stargazing)%> 
-    <!--
-     <%=link_to "Delete", stargazing_path(@stargazing), method: :delete%>
--->

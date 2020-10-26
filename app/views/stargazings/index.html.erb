@@ -6,6 +6,7 @@
 
 <h1>Stargazing Lists</h1>
    <%@stargazings.each do |star|%>
+   <p>
    <ul>
        <li><strong>Constellation Name: </strong><%=link_to star.constellation.constellation_name.capitalize, constellations_path(star)%></i>
         <li><strong>Location: </strong><%=star.location%></li>
@@ -13,5 +14,6 @@
         <li><strong>Time: </strong><%=star.time%></li>
     </u>
  <%end%>
+ </p>
 
 

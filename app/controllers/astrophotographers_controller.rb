@@ -9,13 +9,12 @@ class AstrophotographersController < ApplicationController
     end
 
     def show
-        set_astro #=> @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
-   #@astrophotographer = Astrophotographer.find_by_id(params[:id]) 
-        # if !@astrophotographer
-        #     redirect_to root_path
+        @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
+        if !@astrophotographer
+            redirect_to root_path
         end
+    end
   
-    
     def new
         @astrophotographer = Astrophotographer.new
     end
@@ -32,13 +31,11 @@ class AstrophotographersController < ApplicationController
         end
     end
 
-   
-   
     def edit
     end 
    
     def update
-        set_astro #=> @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
+        @astrophotographer = Astrophotographer.find_by_id(params[:id])
         if @astrophotographer.update(astro_params)
             redirect_to astrophotographer_path(@astrophotographer)
         else
@@ -47,11 +44,11 @@ class AstrophotographersController < ApplicationController
     end
 
     def destroy
-        set_astro #=> @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
+        @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
         @astrophotographer.delete
         redirect_to signup_path
         flash.now[:error] = "You have successfully deleted your account!"
-        end
+    end
 
     private
 

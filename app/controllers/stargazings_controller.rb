@@ -1,12 +1,12 @@
 class StargazingsController < ApplicationController
+  before_action :set_star, only: [:show, :edit]
   
   def new
-    @stargazing = Stargazing.new #= object that passes the form builder 
+    @stargazing = Stargazing.new  
   end
 
   def create
     @stargazing = Stargazing.new(star_params)
-    # byebug
     if @stargazing.save
       redirect_to stargazing_path(@stargazing)
     else
@@ -24,16 +24,14 @@ class StargazingsController < ApplicationController
    end
 
   def show
-    @stargazing = Stargazing.find_by_id(params[:id])
   end
 
    def edit
-      @stargazing = Stargazing.find_by_id(params[:id])
    end
 
 
    def update
-    set_star #=>@constellation = Constellation.find_by_id(params[:id])
+    @stargazing = Stargazing.find_by_id(params[:id])
     if @stargazing.update(star_params)
     redirect_to stargazing_path(@stargazing)
     else

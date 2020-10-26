@@ -3,16 +3,16 @@
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%> |
 
 <%=link_to "Astrophotographers", astrophotographers_path%> 
-
+<div>
     <p><strong>Constellation Name:</strong> <%=@constellation.constellation_name%></p>
     <p><strong>Star Name:</strong> <%=@constellation.star_name%></p>
     <p><img src="<%=@constellation.image_url%>"/></p>
     <p><strong>Description:</strong> <%= @constellation.description%></p>
     <p><strong>Light Years Away from Earth:</strong> <%=@constellation.light_years_away_from_earth%></p>
-    
-    <%if current_user%>
-    <%=link_to "Edit", edit_constellation_path(@constellation)%> | <%=link_to "Delete", constellation_path(@constellation), method: :delete%> |  <%=link_to "Add a Stargazing", new_constellation_stargazing_path(@constellation)%> 
-<%end%>
+</div>
+ 
+    <%=link_to "Edit", edit_constellation_path(@constellation)%> | <%=link_to "Delete", constellation_path(@constellation), method: :delete%> |  <%=link_to "Add a Stargazing", new_stargazing_path(@stargazing)%> 
+
 
 <style>
     img {

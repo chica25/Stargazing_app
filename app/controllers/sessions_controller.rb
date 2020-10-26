@@ -9,7 +9,7 @@
           @astrophotographer = Astrophotographer.find_by(username: params[:astrophotographer][:username])
           if @astrophotographer && @astrophotographer.authenticate(params[:astrophotographer][:password])
                session[:astrophotographer_id] = @astrophotographer.id
-               redirect_to constellations_path(@constellation)
+               redirect_to root_path
           else
                flash.now[:error] = "Wrong login. Please try again."
                render :new

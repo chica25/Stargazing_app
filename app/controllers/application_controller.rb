@@ -1,15 +1,12 @@
 class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
-    # protect_from_forgery with: :null_session
-
-
+    # protect_from_forgery with: :exception
+    protect_from_forgery prepend: true, with: :exception
     before_action :redirect_if_not_logged_in
-
     helper_method :current_user, :logged_in?
 
      def logged_in?
-    !!session[:astrophotographer_id]
-     current_user
+        !!session[:astrophotographer_id]
+        current_user
      end
 
      def logged_in?
