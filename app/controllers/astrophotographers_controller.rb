@@ -2,18 +2,19 @@ class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
     before_action :set_astro, only: [:show, :edit]
 
-    # layout 'astro_1.jpg'
+    layout 'main_page'
 
     def index
         @astrophotographers = Astrophotographer.alpha
     end
 
     def show
-        @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
-        if !@astrophotographer
-            redirect_to root_path
+        # set_astro
+        # @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
+        # if @astrophotographer
+            # redirect_to astrophotographer_path(@astrophotographer)
         end
-    end
+
   
     def new
         @astrophotographer = Astrophotographer.new
@@ -46,8 +47,8 @@ class AstrophotographersController < ApplicationController
     def destroy
         @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
         @astrophotographer.delete
-        redirect_to signup_path
         flash.now[:error] = "You have successfully deleted your account!"
+        redirect_to signup_path 
     end
 
     private

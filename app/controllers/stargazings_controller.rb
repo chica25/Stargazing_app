@@ -26,17 +26,16 @@ class StargazingsController < ApplicationController
   def show
   end
 
-   def edit
-   end
+  def edit
+  end
 
-
-   def update
-    @stargazing = Stargazing.find_by_id(params[:id])
-    if @stargazing.update(star_params)
+  def update
+  @stargazing = Stargazing.find_by_id(params[:id])
+  if @stargazing.update(star_params)
     redirect_to stargazing_path(@stargazing)
-    else
-        render :edit
-    end
+  else
+      render :edit
+  end
 end
 
 # def destroy

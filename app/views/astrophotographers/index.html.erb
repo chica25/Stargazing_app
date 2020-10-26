@@ -2,10 +2,11 @@
 <%=link_to "Constellations", constellations_path(@constellation)%> |
 <%=link_to "Stargazings", stargazings_path(@stargazing)%> 
 
+
 <p><div class ="">
 <h1>All Astrophotographers</h1>
 <% @astrophotographers.each do |astro|%>
-    <p><%= link_to astro.username, astrophotographer_path(astro)%></p>
+    <p><%= link_to astro.username.capitalize, astrophotographer_path(astro)%></p>
 <%end%>
 </div></p>
  

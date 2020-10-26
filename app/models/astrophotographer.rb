@@ -5,7 +5,7 @@ class Astrophotographer < ApplicationRecord
     validates :username, presence: true, uniqueness: { case_sensitive: false }
     validates :username, length: {minimum: 4 }
     
-    scope :alpha, -> { order(:username) }
+    scope :alpha, -> { order(:astrophotograher_id) }
 
 
     def self.from_omniauth(auth) 

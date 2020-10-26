@@ -1,5 +1,5 @@
 class ConstellationsController < ApplicationController
-    before_action :current_user
+    # before_action :current_user
     before_action :set_cons, only: [:show, :edit, :update, :delete]
 
      def index

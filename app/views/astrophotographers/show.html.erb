@@ -1,16 +1,15 @@
-<%=link_to "Astrophotographers", astrophotographers_path(@constellation)%>|
+<%=link_to "Home", root_path%>|
+<%=link_to "Astrophotographer", astrophotographer_path(@astrophotographer)%>|
 <%=link_to "Constellations", constellations_path(@constellation)%>|
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%>
-
-<%=link_to "Home", root_path%>
-<%=link_to "Astrophotographers", astrophotographers_path%> | <%=link_to "Constellations", constellations_path(@constellation)%>
+<p>
 <h2><%=@astrophotographer.username.capitalize%></h2>
 <img src="<%=@astrophotographer.profile_image%>"/>
 <p><strong>About</strong> <%=@astrophotographer.bio%></p>
+</p>
 
-<%if current_user%>
     <%=link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
-<%end%>
+
 
 <style>
 img {

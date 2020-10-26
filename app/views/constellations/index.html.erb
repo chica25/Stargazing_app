@@ -2,8 +2,8 @@
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%> |
 <%=link_to "Astrophotographers", astrophotographers_path%> 
 <h1>Constellation Lists</h1>
-   <%@constellations.each do |cons|%>
-   <p><%=link_to cons.constellation_name, constellation_path(cons)%></p>
+   <%@constellations.each do |cons|%>   <p><%=link_to cons.constellation_name, constellation_path(cons)%></p>
+
  <%end%>   
 
 
