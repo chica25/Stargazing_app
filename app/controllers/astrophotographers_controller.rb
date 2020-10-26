@@ -2,7 +2,7 @@ class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
     before_action :set_astro, only: [:show, :edit]
 
-    layout 'main_page'
+    # layout 'main_page'
 
     def index
         @astrophotographers = Astrophotographer.alpha

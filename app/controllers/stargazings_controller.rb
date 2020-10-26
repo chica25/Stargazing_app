@@ -1,12 +1,14 @@
 class StargazingsController < ApplicationController
   before_action :set_star, only: [:show, :edit]
+
   
   def new
     @stargazing = Stargazing.new  
   end
 
   def create
-    @stargazing = Stargazing.new(star_params)
+    @stargazing = current_user.stargazings.new(star_params)
+    # @stargazing = Stargazing.new(star_params)
     if @stargazing.save
       redirect_to stargazing_path(@stargazing)
     else
@@ -27,7 +29,22 @@ class StargazingsController < ApplicationController
   end
 
   def edit
+    set_cons
+    if @constellation.astrophotographer_id == current_user
+      render :edit
+    else
+      redirect_to stargazing_path(@stargazing)
   end
+end
+
+     # def edit
+    #     set_cons
+    #     if @constellation.astrophotographer_id == current_user
+    #         render :edit
+    #     else
+    #         redirect_to constellations_path(@constellation)
+    #     end 
+    # end
 
   def update
   @stargazing = Stargazing.find_by_id(params[:id])

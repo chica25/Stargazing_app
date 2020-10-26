@@ -1,6 +1,7 @@
 class ConstellationsController < ApplicationController
     # before_action :current_user
-    before_action :set_cons, only: [:show, :edit, :update, :delete]
+    before_action :set_cons, only: [:show]
+
 
      def index
          @constellations = Constellation.all.sorted
@@ -22,26 +23,46 @@ class ConstellationsController < ApplicationController
         end
     end
 
-    def edit
-    end
+    # def edit
+    #     set_cons
+    #     if @constellation.astrophotographer_id == current_user
+    #         render :edit
+    #     else
+    #         redirect_to constellations_path(@constellation)
+    #     end 
+    # end
 
-    def update
-        set_cons #=>@constellation = Constellation.find_by_id(params[:id])
-        if @constellation.update(cons_params)
-        redirect_to constellation_path(@constellation)
-        else
-            render :edit
-        end
-    end
+    # def update
+    #     set_cons #=>@constellation = Constellation.find_by_id(params[:id])
+    #     if @constellation.update(cons_params)
+    #     redirect_to constellation_path(@constellation)
+    #     else
+    #         render :edit
+    #     end
+    # end
 
-    def destroy
-        set_cons #=>@constellation = Constellation.find_by_id(params[:id])
-        if @constellation.destroy
-            redirect_to constellations_path
-        else 
-            flash.now[:error] = "Please try again"
-        end
-    end
+    # def update
+    #     set_cons
+    #     if @constellation.astrophotographer_id != current_user
+    #          @constellation.update(cons_params)
+    #         # flash.now[:error] = "You're not authorized"
+    #         redirect_to constellations_path(@constellation)
+    #     else
+    #         render :edit
+    #     end
+    # end
+
+
+    # def destroy
+    #     @constellation = Constellation.find_by_id(params[:id])
+    #     if @constellation.astrophotographer_id == current_user
+    #         @constellation.destroy
+    #         # flash.now[:error] = "Please try again"
+           
+    #     else 
+    #         redirect_to constellations_path
+    #     end
+    # end
 
     private
 

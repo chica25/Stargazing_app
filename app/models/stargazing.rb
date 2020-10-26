@@ -1,6 +1,7 @@
 class Stargazing < ApplicationRecord
-    belongs_to :astrophotographer, required: false
-    belongs_to :constellation, required: false
+    belongs_to :astrophotographer
+    belongs_to :constellation
+    # belongs_to :constellation, required: false
 
     
     # def self.find_by_constellation_id(id)

@@ -1,5 +1,7 @@
  class SessionsController < ApplicationController
      skip_before_action :redirect_if_not_logged_in
+     
+     layout 'application'
 
      def new
          @astrophotographer = Astrophotographer.new
