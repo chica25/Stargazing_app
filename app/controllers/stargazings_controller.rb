@@ -8,7 +8,6 @@ class StargazingsController < ApplicationController
 
   def create
     @stargazing = current_user.stargazings.new(star_params)
-    # @stargazing = Stargazing.new(star_params)
     if @stargazing.save
       redirect_to stargazing_path(@stargazing)
     else
@@ -17,7 +16,7 @@ class StargazingsController < ApplicationController
   end
 
      def index
-         if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:id])
+         if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
              @stargazings = @constellation.stargazings
         else
             #add flash error message
@@ -31,11 +30,10 @@ class StargazingsController < ApplicationController
   def edit
     # set_star
     @stargazing = Stargazing.find_by_id(params[:id])
-    if @stargazing.astrophotographer_id == current_user
-      render :edit
-    else
-      redirect_to edit_constellation_stargazings_path(@constellation, @stargazing)
-  end
+    if @stargazing.astrophotographer != current_user
+     redirect
+    end
+
 end
 
      # def edit
@@ -52,9 +50,9 @@ end
     if @stargazing.astrophotographer_id == current_user
       @stargazing.update(star_params)
       # flash[:message] = "New list updated successfully!"
-      redirect_to stargazing_constellation_path(@constellation)
+      redirect_to stargazing_constellation_path(@constellation, @stargazing)
     else
-        redirect_to constellation_stargazings_path(@constellation)
+        redirect_to constellation_stargazings_path(@constellation, @stargazing)
     end
   end
     # def update
@@ -74,7 +72,7 @@ end
             @stargazing.destroy 
         else 
           # flash.now[:error] = "Please try again"
-            redirect_to constellation_stargazings_path
+            redirect_to constellation_stargazings_path(@constellation)
         end
     end
 

@@ -119,9 +119,13 @@ ul {
 }
 
 .field_with_errors {
-  border: 1px solid red;
+  color: red;
   font-family: 'Merriweather Sans', sans-serif;
-  font-size: 22px;
+ 
+}
+
+.error {
+  color: solid red;
 }
 
 
@@ -129,18 +133,7 @@ ul {
 
 </style> 
 
- 
-          <% if !flash[:error].blank? %>
-             <div class="error">
-                <%= flash[:error] %>
-              </div>
-            <% end %> 
 
-          <% if !flash[:message].blank? %>
-              <div class="message">
-                <%= flash[:message] %>
-              </div>
-          <% end %>
   
     <%=render_navigation%>
 
