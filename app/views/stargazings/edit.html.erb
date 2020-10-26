@@ -5,16 +5,5 @@
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%> 
 
 <h2>Edit Stargazing</h2>
-<%=form_for @stargazing do |f|%>
-        <%=f.label :location%>
-        <%=f.text_field :location%>
-       <br><br>
-        <%=f.label :time%>
-        <%=f.time_field :time%>
-        <br><br>
-        <%=f.label :weather%>
-        <%=f.number_field :weather%>
-        <br><br>
-        <%=f.submit%>           
-<%end%>
 
+<%=render partial: 'star', locals: {stargazing @stargazing} %>

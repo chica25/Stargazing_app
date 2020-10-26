@@ -1,0 +1,14 @@
+<%=form_for @stargazing do |f|%>
+<%= f.collection_select(:constellation_id, Constellation.all, :id, :constellation_name) %>
+    <%=f.label :location%>
+    <%=f.text_field :location%>
+<br><br>
+    <%=f.label :weather%>
+    <%=f.number_field :weather%>
+<br><br>
+    <%=f.label :time%>
+    <%=f.time_field :time%>
+    
+    <%=f.submit%>
+
+<%end%>
