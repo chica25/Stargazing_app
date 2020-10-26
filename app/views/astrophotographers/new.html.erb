@@ -1,7 +1,8 @@
 
-<div class="flash-message">
-<%=flash[:message] if flash[:message]%>
+<div class="essage">
+<%=flash[:message] if flash[:message].present?%>
 </div>
+
 <h1>Welcome to Stagazing!</h1>
     <%=form_for :astrophotographer do |f|%>
         <%=f.label :username%>
@@ -17,6 +18,3 @@
     color: green;
 }
 </style>
-
-<% if flash[:message].present?%>
-<div id="flash-messgae" style=border: 1px, solid red; color; red; padding: 10px">

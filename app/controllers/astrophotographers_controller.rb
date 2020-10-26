@@ -27,14 +27,31 @@ class AstrophotographersController < ApplicationController
             flash.now[:message] = "Your account was created"
             redirect_to root_path(@astrophotographer) 
         else
-            flash.now[:error] = "Username is too short"
+            flash.now[:error] = "Username is already taken. Please try again."
             render :new
         end
     end
 
-    def edit
-    end 
+    # def edit
+    # end 
    
+    #Refactor edit
+    def edit
+
+    end
+
+
+
+    # def edit
+    #     set_star
+    #     @stargazing = Stargazing.find_by_id(params[:id])
+    #     if @stargazing.astrophotographer_id == current_user
+    #       render :edit
+    #     else
+    #       redirect_to constellation_stargazings_path(@constellation, @stargazing)
+    #   end
+
+
     def update
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
         if @astrophotographer.update(astro_params)

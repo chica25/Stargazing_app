@@ -29,11 +29,12 @@ class StargazingsController < ApplicationController
   end
 
   def edit
-    set_star
+    # set_star
+    @stargazing = Stargazing.find_by_id(params[:id])
     if @stargazing.astrophotographer_id == current_user
       render :edit
     else
-      redirect_to constellation_stargazing_path(@constellation)
+      redirect_to edit_constellation_stargazings_path(@constellation, @stargazing)
   end
 end
 
@@ -48,8 +49,9 @@ end
 
   def update
     @stargazing = Stargazing.find_by_id(params[:id])
-    if @stargazing.astrophotographer_id != current_user
+    if @stargazing.astrophotographer_id == current_user
       @stargazing.update(star_params)
+      # flash[:message] = "New list updated successfully!"
       redirect_to stargazing_constellation_path(@constellation)
     else
         redirect_to constellation_stargazings_path(@constellation)
