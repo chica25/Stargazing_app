@@ -5,7 +5,7 @@ class AstrophotographersController < ApplicationController
     # layout 'main_page'
 
     def index
-        @astrophotographers = Astrophotographer.alpha
+        @astrophotographers = Astrophotographer.first_five_list
     end
 
     def show
@@ -35,13 +35,12 @@ class AstrophotographersController < ApplicationController
     #Refactor edit
     def edit
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
-        # if @astrophotographer == current_user
-            # redirect_to edit_astrophotographer_path(@astrophotographer)
+         if @astrophotographer && logged_in?
               render :edit
-        # else
-        #  redirect_to astrophotographers_path(@astrophotgraphers)
-        end
-    #  end
+         else
+             flash[:error] = "You don't have permission"
+        end  
+     end
 
 
     def update

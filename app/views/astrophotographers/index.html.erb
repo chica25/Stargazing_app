@@ -8,9 +8,11 @@
 
 <p><div class ="">
 <h1>All Astrophotographers</h1>
-<% @astrophotographers.each do |astro|%>
-    <p><%=link_to astro.username.capitalize, astrophotographer_path(astro)%></p>
-    <p><img src="<%=astro.profile_image%>"/></p>
+<%@astrophotographers.each do |astro|%>
+<%=link_to astro.username.capitalize, astrophotographer_path(astro)%>
+  <p><img src="<%=astro.profile_image%>"/></p>
+    
+
 <%end%>
 
 
@@ -21,6 +23,7 @@ img {
     width:  400px;
     height: 400px;
     object-fit:scale-down;
+    position: relative;
 }
 
 </style>

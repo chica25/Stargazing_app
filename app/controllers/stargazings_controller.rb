@@ -16,18 +16,30 @@ class StargazingsController < ApplicationController
   end
 
      def index
-         if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
-             @stargazings = @constellation.stargazings
-        else
-            #add flash error message
-           @stargazings = Stargazing.all
-        end
-   end
+      #2nd scode
+      if params[:constellation_id]
+        @stargazings = Constellation.find(params[:constellation_id]).stargazings
+      else
+        @stargazings = Stargazing.all
+      end
+    end
+        #code 1
+  #        if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
+  #            @stargazings = @constellation.stargazings
+  #       else
+  #           #add flash error message
+  #          @stargazings = Stargazing.all
+  #       end
+  #  end
 
+  # def show
+  #   set_star
+  #   @stargazing = Stargazing.find_by_id(params[:id])
+  #   @constellation = @stargazing.constellation
+  # end
+
+  # code 2
   def show
-    set_star
-    @stargazing = Stargazing.find_by_id(params[:id])
-    @constellation = @stargazing.constellation
   end
 
   def edit
