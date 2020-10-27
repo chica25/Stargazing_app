@@ -5,7 +5,7 @@ class AstrophotographersController < ApplicationController
     # layout 'main_page'
 
     def index
-        @astrophotographers = Astrophotographer.first_five_list
+        @astrophotographers = Astrophotographer.first_five
     end
 
     def show
