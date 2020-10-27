@@ -1,6 +1,6 @@
 class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
-    before_action :set_astro, only: [:show, :edit]
+    before_action :set_astro, only: [:edit]
 
     # layout 'main_page'
 
@@ -9,11 +9,10 @@ class AstrophotographersController < ApplicationController
     end
 
     def show
-        # set_astro
-        # @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
-        # if @astrophotographer
-            # redirect_to astrophotographer_path(@astrophotographer)
-        end
+         set_astro
+         @astrophotographer = Astrophotographer.find_by_id(params[:id])
+  
+    end
 
   
     def new
@@ -32,24 +31,17 @@ class AstrophotographersController < ApplicationController
         end
     end
 
-    # def edit
-    # end 
    
     #Refactor edit
     def edit
-
-    end
-
-
-
-    # def edit
-    #     set_star
-    #     @stargazing = Stargazing.find_by_id(params[:id])
-    #     if @stargazing.astrophotographer_id == current_user
-    #       render :edit
-    #     else
-    #       redirect_to constellation_stargazings_path(@constellation, @stargazing)
-    #   end
+        @astrophotographer = Astrophotographer.find_by_id(params[:id])
+        # if @astrophotographer == current_user
+            # redirect_to edit_astrophotographer_path(@astrophotographer)
+              render :edit
+        # else
+        #  redirect_to astrophotographers_path(@astrophotgraphers)
+        end
+    #  end
 
 
     def update

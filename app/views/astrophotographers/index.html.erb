@@ -1,12 +1,23 @@
+
+
 <%=link_to "Home", root_path%>
 <%=link_to "Constellations", constellations_path(@constellation)%> |
 <%=link_to "Stargazings", stargazings_path(@stargazing)%> 
 
 
+
 <p><div class ="">
 <h1>All Astrophotographers</h1>
 <% @astrophotographers.each do |astro|%>
-    <p><%= link_to astro.username.capitalize, astrophotographer_path(astro)%></p>
+    <p><%=link_to astro.username.capitalize, astrophotographer_path(astro)%></p>
+    <p><img src="<%=astro.profile_image%>"/></p>
 <%end%>
-</div></p>
- 
+
+
+
+<style>
+img {
+height: 400px;
+ width: 200 px
+}
+</style>

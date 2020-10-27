@@ -1,4 +1,4 @@
-
+<div>
 <h1>Welcome Back!</h1>
 <%=form_for :astrophotographer do |f|%>
     <%=f.label :username%>
@@ -6,9 +6,12 @@
     <%=f.label :Password%>
     <%=f.password_field :password%>
     <%=f.submit 'Login'%> 
-<%end%> 
+<%end%>
+</div>
+<br>
+<div>
 <%=button_to 'Login with Google', '/auth/google_oauth2'%>
-
+</div>
 <style>
 .flash-error {
     color: red;

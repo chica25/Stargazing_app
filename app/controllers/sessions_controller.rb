@@ -17,7 +17,6 @@
      end
 
      def omniauth
-          byebug
           @astrophotographer = Astrophotographer.from_omniauth(auth)
           if @astrophotographer.valid?
                session[:astrophotographer_id] = @astrophotographer.id

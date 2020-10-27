@@ -1,5 +1,7 @@
+
+
 <%=link_to "Home", root_path%>|
-<%=link_to "Astrophotographer", astrophotographer_path(@astrophotographer)%>|
+<%=link_to "Astrophotographers", astrophotographers_path(@astrophotographer)%>|
 <%=link_to "Constellations", constellations_path(@constellation)%>|
 <%=link_to "Add a Constellation", new_constellation_path(@constellation)%>
 <p>
@@ -8,7 +10,9 @@
 <p><strong>About</strong> <%=@astrophotographer.bio%></p>
 </p>
 
-<%=link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
+<% if current_user%>
+    <%=link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
+<%end%>
 
 
 <style>
@@ -17,3 +21,12 @@ height: 150px;
  width: 100 px
 }
 </style>
+
+
+<style>
+img {
+height: 400px;
+ width: 200 px
+}
+</style>
+

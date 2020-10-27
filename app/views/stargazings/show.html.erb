@@ -12,4 +12,8 @@
 <p><strong>Weather:</strong> <%=@stargazing.weather%></p>
 <p><strong>Time:</strong> <%=@stargazing.time%></p>
 
-    <%=link_to "Edit", edit_stargazing_path(@stargazing)%> 
+<%=link_to "Edit", edit_constellation_stargazing_path(@constellation, @stargazing)%> 
+
+<!--
+<%=link_to "Delete", constellation_stargazing_path(@constellation, @stargazing), method: :delete%>
+-->

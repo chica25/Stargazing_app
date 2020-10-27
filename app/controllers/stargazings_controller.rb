@@ -1,5 +1,5 @@
 class StargazingsController < ApplicationController
-  before_action :set_star, only: [:show, :edit]
+  before_action :set_star, only: [:show, :edit, :update, :delete]
 
   
   def new
@@ -9,7 +9,7 @@ class StargazingsController < ApplicationController
   def create
     @stargazing = current_user.stargazings.new(star_params)
     if @stargazing.save
-      redirect_to stargazing_path(@stargazing)
+       redirect_to new_constellation_stargazing_path(@constellation)
     else
       render :new
     end
@@ -25,16 +25,19 @@ class StargazingsController < ApplicationController
    end
 
   def show
+    set_star
+    @stargazing = Stargazing.find_by_id(params[:id])
+    @constellation = @stargazing.constellation
   end
 
   def edit
-    # set_star
-    @stargazing = Stargazing.find_by_id(params[:id])
-    if @stargazing.astrophotographer != current_user
-     redirect
+    #  set_star
+      @stargazing = Stargazing.find_by_id(params[:id])
+      @stargazing = Stargazing.constellation.find_by_id(params[:constellation_id])
+      if @stargazing.astrophotographer != current_user
+      redirect_to constellation_stargazings_path(@constellation, @stargazing)
+      end
     end
-
-end
 
      # def edit
     #     set_cons
@@ -46,15 +49,16 @@ end
     # end
 
   def update
-    @stargazing = Stargazing.find_by_id(params[:id])
+     @stargazing = Stargazing.find_by_id(params[:id])
     if @stargazing.astrophotographer_id == current_user
       @stargazing.update(star_params)
       # flash[:message] = "New list updated successfully!"
-      redirect_to stargazing_constellation_path(@constellation, @stargazing)
-    else
-        redirect_to constellation_stargazings_path(@constellation, @stargazing)
+      redirect_to constellation_stargazing_path(@constellation, @stargazing)
+     else
+         redirect_to constellation_stargazings_path(@constellation, @stargazing)
     end
   end
+
     # def update
     #     set_cons
     #     if @constellation.astrophotographer_id != current_user
@@ -66,15 +70,15 @@ end
     #     end
     # end
 
-    def destroy
-        @constellation = Constellation.find_by_id(params[:id])
-        if @stargazing.astrophotographer_id == current_user
-            @stargazing.destroy 
-        else 
-          # flash.now[:error] = "Please try again"
-            redirect_to constellation_stargazings_path(@constellation)
-        end
-    end
+    # def destroy
+    #     @constellation = Constellation.find_by_id(params[:id])
+    #     if @stargazing.astrophotographer_id == current_user
+    #         @stargazing.destroy
+    #     else
+    #       # flash.now[:error] = "Please try again"
+    #         redirect_to constellation_stargazings_path(@constellation)
+  #     # end
+  # end
 
 # def destroy
 #     set_star #=>@constellation = Constellation.find_by_id(params[:id])
