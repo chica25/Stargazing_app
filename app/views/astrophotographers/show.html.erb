@@ -10,7 +10,7 @@
 <p><strong>About</strong> <%=@astrophotographer.bio%></p>
 </p>
 
-<% if current_user%>
+<%if current_user == @astrophotographer.id%>
     <%=link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
 <%end%>
 
