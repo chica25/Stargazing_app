@@ -11,10 +11,8 @@ class AstrophotographersController < ApplicationController
     def show
          set_astro
          @astrophotographer = Astrophotographer.find_by_id(params[:id])
-  
     end
 
-  
     def new
         @astrophotographer = Astrophotographer.new
     end

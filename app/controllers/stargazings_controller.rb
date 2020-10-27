@@ -25,31 +25,20 @@ class StargazingsController < ApplicationController
    end
 
   def show
-    set_star
-    @stargazing = Stargazing.find_by_id(params[:id])
+   @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
     @constellation = @stargazing.constellation
   end
 
   def edit
-    #  set_star
-      @stargazing = Stargazing.find_by_id(params[:id])
+      @stargazing = Stargazing.find_by_id(params[:id])  #=> set_star
       @constellation = Constellation.find_by_id(params[:constellation_id])
       if @stargazing.astrophotographer != current_user
       redirect_to constellation_stargazings_path(@constellation, @stargazing)
       end
     end
 
-     # def edit
-    #     set_cons
-    #     if @constellation.astrophotographer_id == current_user
-    #         render :edit
-    #     else
-    #         redirect_to constellations_path(@constellation)
-    #     end 
-    # end
-
   def update
-     @stargazing = Stargazing.find_by_id(params[:id])
+     @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
     if @stargazing.astrophotographer == current_user
       @stargazing.update(star_params)
       # flash[:message] = "New list updated successfully!"
@@ -60,6 +49,7 @@ class StargazingsController < ApplicationController
   end
 
     def destroy
+      @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
       @constellation = Constellation.find_by_id(params[:constellation_id])
       if @stargazing.astrophotographer == current_user
           @stargazing.destroy
