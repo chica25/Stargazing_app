@@ -12,17 +12,8 @@
   <body>
 
 <style>
-img {
- position: relative;
-    width: 100%;
-    height: auto%;
-    background-size: cover;
-    overflow: hidden;
-    background-position: cover;
-    min-height: 100px;
-}
 
-.img {
+.type {
     color: blue;
 }
 
@@ -30,14 +21,11 @@ img {
 
 
     <%=render_navigation%>
-    
+
 <%= yield %>
 
-  <div class="img" style="min-height: 300px;">
-  <%= link_to image_tag('astro_1.jpg') %>
-  </div>
 
-  
+
 
   </body>
 </html>

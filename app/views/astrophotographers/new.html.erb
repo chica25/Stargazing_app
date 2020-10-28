@@ -3,6 +3,19 @@
 <h1>Welcome to Stagazing!</h1>
 
     <%= form_for(@astrophotographer) do |f| %>
+     <% if @astrophotographer.errors.any? %>
+    <div id="error_explanation">
+      <h2 class="error">
+        <%= pluralize(@astrophotographer.errors.count, "error") %> prohibited this listing from being saved:
+      </h2>
+        <ul>
+              <% @astrophotographer.errors.full_messages.each do |m| %>
+                <li><%= m%></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
     <p>
         <%= f.label :username %>
         <%= f.text_field :username %>
@@ -18,3 +31,13 @@
     </p>
  <% end %>
 
+
+  <!-- welcome image -->
+    <div class="welcome-image" style="min-height: 300px;">
+    <%= link_to image_tag('astro_1.jpg') %>
+    </div>
+  
+  <!-- footer -->
+    <footer class="footer">
+      <div id="copyright">&copy; 2020 Stargazing</div>
+    </footer>

@@ -1,26 +1,24 @@
 
+<%= link_to "Home", root_path %> |
+<%= link_to "Constellations", constellations_path(@constellation) %> 
 
-<%= link_to "Home", root_path %>
-<%= link_to "Constellations", constellations_path(@constellation) %> |
-<%= link_to "Stargazings", stargazings_path(@stargazing) %> 
 
 
 <div class ="">
 <h1>All Astrophotographers</h1>
     <% @astrophotographers.each do |astro| %>
       <%= link_to astro.username.capitalize, astrophotographer_path(astro) %>
-    <p><img src="<%=a stro.profile_image %>"/></p>
+    <p><img src="<%= astro.profile_image %>"/></p>
   <% end %>
 
+
 <%= link_to "back", astrophotographers_path(@astrophotographers) %> 
-<style>
 
-img {
-   
-    width:  400px;
+    <style>
+    img {
+    width: 400px;
     height: 400px;
-    object-fit:scale-down;
-    position: relative;
-}
+    object-fit: scale-down;
+   }
 
-</style>
+  </style> 

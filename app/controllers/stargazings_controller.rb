@@ -1,6 +1,5 @@
 class StargazingsController < ApplicationController
   before_action :set_star, only: [:show, :edit, :update, :destroy]
- 
 
   def index
     if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
@@ -11,10 +10,9 @@ class StargazingsController < ApplicationController
  end
 
   def show
-    @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
+    @stargazing = Stargazing.find_by_id(params[:id]) 
     @constellation = @stargazing.constellation
   end
-
   
   def new
     @stargazing = Stargazing.new  
@@ -30,9 +28,8 @@ class StargazingsController < ApplicationController
     end
   end
  
-
   def edit
-      @stargazing = Stargazing.find_by_id(params[:id])  #=> set_star
+      @stargazing = Stargazing.find_by_id(params[:id]) 
       @constellation = Constellation.find_by_id(params[:constellation_id])
       if @stargazing.astrophotographer != current_user
       redirect_to constellation_stargazings_path(@constellation, @stargazing)
@@ -40,7 +37,7 @@ class StargazingsController < ApplicationController
   end
 
   def update
-     @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
+     @stargazing = Stargazing.find_by_id(params[:id])
     if @stargazing.astrophotographer == current_user
       @stargazing.update(star_params)
       flash[:message] = "Updated successfully!"
@@ -52,14 +49,14 @@ class StargazingsController < ApplicationController
   end
 
     def destroy
-      @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
+      @stargazing = Stargazing.find_by_id(params[:id])
       @constellation = Constellation.find_by_id(params[:constellation_id])
       if @stargazing.astrophotographer == current_user
           @stargazing.destroy
           
       end
       flash.now[:error] = "You don't have access"
-      redirect_to constellation_stargazings_path(@constellation)
+      redirect_to stargazings_path(@stargazing)
   end
 
     private

@@ -1,13 +1,5 @@
 
-
-<%= if flash[:message].blank? %>
-  <div class="flash-message">
-    <%= flash[:message] %>
-  </div>
-<% end %>
-
-
-<%= link_to "Home", root_path%>|
+<%= link_to "Home", root_path%> |
 <%= link_to "Astrophotographers", astrophotographers_path(@astrophotographer) %>|
 <%= link_to "Constellations", constellations_path(@constellation) %> |
 <%= link_to "Stargazings", stargazings_path(@stargazing) %> 

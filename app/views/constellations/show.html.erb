@@ -2,7 +2,7 @@
 <%= link_to "Back to Constellations", constellations_path(@constellation) %> |
 <%= link_to "Add a Constellation", new_constellation_path(@constellation) %> |
 <%= link_to "Astrophotographers", astrophotographers_path %> |
-<%= link_to "stargazings", constellation_stargazings_path(@constellation, @stargazing)  %>
+<%= link_to "stargazings", stargazings_path(@stargazing)  %>
 
 <div>
     <p><strong>Constellation Name:</strong> <%= @constellation.constellation_name %></p>

@@ -10,46 +10,83 @@
   </head>
 
   <body>
-
-
   
-    <%=render_navigation%>
+<style>
+body {
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 320px;
+    max-width: 1000px; 
+    min-height: 100%; 
+    width: 100%;
+}
+
+h1 {
+  color: navy;
+  font-family: "midnightblue";
+  font-size: 24px;
+  }
+
+.profile-img {
+  height: 100px;
+  width: 50 px
+}
+
+.errors {
+color: navy;
+font-family: "midnightblue";
+font-size: 24px;
+
+}
+
+.welcome-image {
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  display:inline-block;
+  background-repeat: no-repeat;
+  font-family: Georgia;
+  text-align: left;
+  padding: 10px 10px;
+  margin: 10px;
+}
+.show-imgage {  
+
+}
+
+.index-imgs {
+}
+
+.error {
+  color: red;
+}
+.message {
+  color: green;
+}
+
+.footer { 
+  bottom: 0; 
+  width: 100%; 
+  height: auto; 
+  color: SlateGray;
+  margin: auto;
+  font-family: Georgia;
+  color: blue;
+  
+  }
+
+</style>
 
 
-    
-    <style>
-
-    h1 {
-      color: navy;
-      font-family: "midnightblue";
-      font-size: 24px;
-
-    .flash-message {
-      color: navy;
-      font-family: "midnightblue";
-      font-size: 24px;
-    }
-
-    .errors {
-      color: navy;
-      font-family: "midnightblue";
-      font-size: 24px;
-    }
-      .img {
-      bottom: 0;
-      max-width: 100%;
-      height: auto;
-      display:inline-block;
-      background-repeat: no-repeat;
-
-
-    }
-
-
-  </style>
-
-<%= yield %>
-
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+      <%= msg %>
+    </div>
+  <% end %>
+    <%= render_navigation %>
+   
+    <%= yield %>
 
 
   </body>

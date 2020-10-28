@@ -2,9 +2,6 @@ class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
     before_action :set_astro, only: [:edit]
 
-     layout 'nav' #=> turns on the late
-     #layout 'false' #=> turns off the layout
-
     def index
         @astrophotographers = Astrophotographer.first_five
     end
@@ -22,10 +19,9 @@ class AstrophotographersController < ApplicationController
         @astrophotographer = Astrophotographer.new(astro_params)  
         if @astrophotographer.save
             session[:astrophotographer_id] = @astrophotographer.id
-            flash.now[:message] = "Your account was created"
+            flash[:message] = "Your account was created"
             redirect_to root_path(@astrophotographer) 
         else
-            flash.now[:error] = "Username is already taken. Please try again."
             render :new
         end
     end
@@ -52,7 +48,7 @@ class AstrophotographersController < ApplicationController
     def destroy
         @astrophotographer = Astrophotographer.find_by_id(params[:id]) 
         @astrophotographer.delete
-        flash.now[:error] = "You have successfully deleted your account!"
+        flash[:error] = "You have successfully deleted your account!"
         redirect_to signup_path 
     end
 
