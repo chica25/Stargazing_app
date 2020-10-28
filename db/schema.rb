@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_060846) do
+ActiveRecord::Schema.define(version: 2020_10_28_071315) do
 
   create_table "astrophotographers", force: :cascade do |t|
     t.string "username"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_10_24_060846) do
     t.integer "constellation_id"
     t.string "location"
     t.integer "weather"
-    t.integer "time"
+    t.string "time"
   end
 
 end

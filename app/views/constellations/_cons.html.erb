@@ -1,33 +1,35 @@
 
-     <%if @constellation.errors.any?%>
-        <h3>
-            <p><%=pluralize(@constellation.errors.count, "error")%></p>
-        </h3>
-    <ul>
-            <%@constellation.errors.full_messages.each do |m|%>
-            <p><li><%=m%></li></p>
-      <%end%>
-    </ul>
-<%end%>
-
   <%=form_for constellation do |f|%>
+      <p>
         <%=f.label :constellation_name%>
         <%=f.text_field :constellation_name%>
-        <br><br>
+      </p>
+
+      <p>
         <%=f.label :star_name%>
         <%=f.text_field :star_name%>
-       <br><br>
+      </p>
+
+      <p>
         <%=f.label :image_url%>
         <%=f.text_field :image_url%>
-        <br><br>
+      </p>
+
+      <p>
         <%=f.label :description%>
         <%=f.text_area :description%>
-        <br><br>
+      </p>
+
+      <p>
         <%=f.label :light_years_away_from_earth%>
         <%=f.number_field :light_years_away_from_earth%>
-        <br><br>
+      </p>
+
+      <p>
         <%=f.submit%>
+      </p>
 <%end%>
 
-<br>
+<%= link_to 'Back', constellations_path(@constellation) %>
+
 

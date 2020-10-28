@@ -1,5 +1,20 @@
 class StargazingsController < ApplicationController
   before_action :set_star, only: [:show, :edit, :update, :destroy]
+ 
+
+  def index
+    if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
+      @stargazings = @constellation.stargazings
+    else
+          #add flash error message
+      @stargazings = Stargazing.alpha_order
+    end
+ end
+
+  def show
+    @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
+    @constellation = @stargazing.constellation
+  end
 
   
   def new
@@ -14,28 +29,15 @@ class StargazingsController < ApplicationController
       render :new
     end
   end
-        #code 1
-    def index
-      if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
-        @stargazings = @constellation.stargazings
-      else
-            #add flash error message
-        @stargazings = Stargazing.all
-      end
-   end
-
-  def show
-   @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
-    @constellation = @stargazing.constellation
-  end
+ 
 
   def edit
       @stargazing = Stargazing.find_by_id(params[:id])  #=> set_star
       @constellation = Constellation.find_by_id(params[:constellation_id])
       if @stargazing.astrophotographer != current_user
       redirect_to constellation_stargazings_path(@constellation, @stargazing)
-      end
     end
+  end
 
   def update
      @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
@@ -43,7 +45,7 @@ class StargazingsController < ApplicationController
       @stargazing.update(star_params)
       # flash[:message] = "New list updated successfully!"
       redirect_to constellation_stargazing_path(@stargazing.constellation, @stargazing)
-     else
+    else
          redirect_to constellation_stargazings_path(@stargazing.constellation)
     end
   end
@@ -57,7 +59,6 @@ class StargazingsController < ApplicationController
       end
       redirect_to constellation_stargazings_path(@constellation)
   end
-
 
     private
 

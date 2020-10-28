@@ -28,9 +28,7 @@ class AstrophotographersController < ApplicationController
             render :new
         end
     end
-
-   
-    #Refactor edit
+  
     def edit
         @astrophotographer = Astrophotographer.find_by_id(params[:id])
          if @astrophotographer && logged_in?

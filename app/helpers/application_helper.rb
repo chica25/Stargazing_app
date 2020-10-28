@@ -8,3 +8,7 @@ module ApplicationHelper
         end
     end
  end
+
+ def error_messages_for(astrophotographer)
+    render(:partial => 'application/error_messages', locals => {:astrophotographer => astrophotographer})
+ end

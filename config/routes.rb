@@ -14,11 +14,11 @@ post '/signup', to: 'astrophotographers#create'
   
 
   resources :astrophotographers
-  #resources :stargazings, only: [:index]
+
   
   resources :stargazings
   
-    resources :constellations do
+    resources :constellations, only: [:index, :show, :new, :create] do
       resources :stargazings
         #resources :stargazings, except: [:index]
     end

@@ -5,15 +5,14 @@
 <%=link_to "Stargazings", stargazings_path(@stargazing)%> 
 
 
-
-<p><div class ="">
+<div class ="">
 <h1>All Astrophotographers</h1>
     <%@astrophotographers.each do |astro|%>
     <%=link_to astro.username.capitalize, astrophotographer_path(astro)%>
     <p><img src="<%=astro.profile_image%>"/></p>
   <%end%>
 
-
+<%=link_to "back", astrophotographers_path(@astrophotographers)%> 
 <style>
 
 img {
