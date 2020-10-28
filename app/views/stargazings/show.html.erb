@@ -1,18 +1,15 @@
 <div>
-<%=link_to "Home", root_path%> |
-<%=link_to "Constellations", constellations_path(@constellation)%> |
-<%=link_to "Add a Constellation", new_constellation_path(@constellation)%> |
-<%=link_to "Astrophotographers", astrophotographers_path%> |
-<%=link_to "Stargazings", stargazings_path(@stargazing)%>
+    <%= link_to "Home", root_path %> |
+    <%= link_to "Constellations", constellations_path(@constellation) %> |
+    <%= link_to "Add a Constellation", new_constellation_path(@constellation) %> |
+    <%= link_to "Astrophotographers", astrophotographers_path %> |
+    <%= link_to "Stargazings", stargazings_path(@stargazing) %>
 </div>
 
-<h2></h2>
-<p><strong>Constellation Name:</strong> <%=@stargazing.constellation.constellation_name%></p>
-<p><strong>Location:</strong> <%=@stargazing.location%></p>
-<p><strong>Weather:</strong> <%=@stargazing.weather%></p>
-<p><strong>Time:</strong> <%=@stargazing.time%></p>
+<p><strong>Constellation Name:</strong> <%= @stargazing.constellation.constellation_name %></p>
+<p><strong>Location:</strong> <%= @stargazing.location %></p>
+<p><strong>Weather:</strong> <%= @stargazing.weather %></p>
+<p><strong>Time:</strong> <%= @stargazing.time %></p>
 
-<%=link_to "Edit", edit_constellation_stargazing_path(@constellation, @stargazing)%> 
-
-
-<%=link_to "Delete", constellation_stargazing_path(@constellation, @stargazing), method: :delete%>
+    <%= link_to "Edit", edit_constellation_stargazing_path(@constellation, @stargazing) %> 
+    <%= link_to "Delete", constellation_stargazing_path(@constellation, @stargazing), method: :delete %>

@@ -2,14 +2,12 @@
 <html>
   <head>
     <title>RailsProject</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  
 
   <body>
 
@@ -18,31 +16,46 @@
     <%=render_navigation%>
 
 
-    <%= yield %>
+    
+    <style>
+
+    h1 {
+      color: navy;
+      font-family: "midnightblue";
+      font-size: 24px;
+
+    .flash-message {
+      color: navy;
+      font-family: "midnightblue";
+      font-size: 24px;
+    }
+
+    .errors {
+      color: navy;
+      font-family: "midnightblue";
+      font-size: 24px;
+    }
+      .img {
+      bottom: 0;
+      max-width: 100%;
+      height: auto;
+      display:inline-block;
+      background-repeat: no-repeat;
+
+
+    }
+
+
+  </style>
+
+<%= yield %>
+
+
 
   </body>
 </html>
 
 
-<style>
-
-h1 {
-  color: navy;
-  font-family: "midnightblue";
-  font-size: 24px;
-}
-  .img {
-  bottom: 0;
-  max-width: 100%;
-  height: auto;
-  display:inline-block;
-  background-repeat: no-repeat;
-
-
-  }
-
-
-</style>
 
 
 

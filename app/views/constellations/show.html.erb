@@ -1,17 +1,18 @@
-<%=link_to "Home", root_path%> |
- <%=link_to "Back to Constellations", constellations_path(@constellation)%> |
-<%=link_to "Add a Constellation", new_constellation_path(@constellation)%> |
-<%=link_to "Astrophotographers", astrophotographers_path%> |
-<%=link_to "stargazings", constellation_stargazings_path(@constellation, @stargazing)%>
+<%= link_to "Home", root_path %> |
+<%= link_to "Back to Constellations", constellations_path(@constellation) %> |
+<%= link_to "Add a Constellation", new_constellation_path(@constellation) %> |
+<%= link_to "Astrophotographers", astrophotographers_path %> |
+<%= link_to "stargazings", constellation_stargazings_path(@constellation, @stargazing)  %>
+
 <div>
-    <p><strong>Constellation Name:</strong> <%=@constellation.constellation_name%></p>
-    <p><strong>Star Name:</strong> <%=@constellation.star_name%></p>
-    <p><img src="<%=@constellation.image_url%>"/></p>
-    <p><strong>Description:</strong> <%= @constellation.description%></p>
-    <p><strong>Light Years Away from Earth:</strong> <%=@constellation.light_years_away_from_earth%></p>
+    <p><strong>Constellation Name:</strong> <%= @constellation.constellation_name %></p>
+    <p><strong>Star Name:</strong> <%= @constellation.star_name %></p>
+    <p><img src="<%= @constellation.image_url %>"/></p>
+    <p><strong>Description:</strong> <%= @constellation.description %></p>
+    <p><strong>Light Years Away from Earth:</strong> <%= @constellation.light_years_away_from_earth %></p>
 </div>
 
-<%=link_to "Add a Stargazing", new_constellation_stargazing_path(@constellation)%> 
+<%= link_to "Add a Stargazing", new_constellation_stargazing_path(@constellation) %> 
 
 <style>
     img {

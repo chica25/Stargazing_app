@@ -6,7 +6,6 @@ class StargazingsController < ApplicationController
     if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
       @stargazings = @constellation.stargazings
     else
-          #add flash error message
       @stargazings = Stargazing.alpha_order
     end
  end
@@ -24,6 +23,7 @@ class StargazingsController < ApplicationController
   def create
     @stargazing = current_user.stargazings.new(star_params)
     if @stargazing.save
+      flash.now[:message] = "Created successfully!"
        redirect_to constellation_stargazing_path(@stargazing.constellation, @stargazing)
     else
       render :new
@@ -43,9 +43,10 @@ class StargazingsController < ApplicationController
      @stargazing = Stargazing.find_by_id(params[:id]) #=> set_star
     if @stargazing.astrophotographer == current_user
       @stargazing.update(star_params)
-      # flash[:message] = "New list updated successfully!"
+      flash[:message] = "Updated successfully!"
       redirect_to constellation_stargazing_path(@stargazing.constellation, @stargazing)
     else
+      flash.now[:error] = "You're not authorize to edit this Stargazing"
          redirect_to constellation_stargazings_path(@stargazing.constellation)
     end
   end
@@ -55,15 +56,16 @@ class StargazingsController < ApplicationController
       @constellation = Constellation.find_by_id(params[:constellation_id])
       if @stargazing.astrophotographer == current_user
           @stargazing.destroy
-          # flash.now[:error] = "Please try again"
+          
       end
+      flash.now[:error] = "You don't have access"
       redirect_to constellation_stargazings_path(@constellation)
   end
 
     private
 
     def star_params
-      params.require(:stargazing).permit(:location, :weather, :time, :constellation_id)
+      params.require(:stargazing).permit(:location, :weather, :time, :constellation_id, :created_at)
     end
 
     def set_star

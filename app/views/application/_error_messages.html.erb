@@ -1,3 +1,4 @@
+   <% if @astrophotographer.errors.any? %>
   <div id="error_explanation">
       <h2>
         <%= pluralize(@astrophotographer.errors.size, "error") %>
@@ -6,6 +7,23 @@
       <ul>
         <% @astrophotographer.errors.full_messages.each do |f| %>
           <li><%= f %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+
+
+
+<%= if !flash[:message].blank?%>
+  <div class="flash-message">
+    <%= flash[:message] %>
+  </div>
+<% end %>
+
+
+<%= if !flash[:error].blank?%>
+  <div class="flash-message">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+

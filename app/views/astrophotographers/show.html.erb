@@ -1,32 +1,38 @@
 
+<%= if flash[:message].blank?%>
+  <div class="flash-message">
+    <%= flash[:message] %>
+  </div>
+<% end %>
 
-<%=link_to "Home", root_path%> |
-<%=link_to "Astrophotographers", astrophotographers_path(@astrophotographer)%> |
-<%=link_to "Constellations", constellations_path(@constellation)%> |
-<%=link_to "Add a Constellation", new_constellation_path(@constellation)%>
-<p>
-<h2><%=@astrophotographer.username.capitalize%></h2>
-<img src="<%=@astrophotographer.profile_image%>"/>
-<p><strong>About</strong> <%=@astrophotographer.bio%></p>
-</p>
-<%=link_to "back", astrophotographers_path(@astrophotographers)%> 
-<%if current_user == @astrophotographer%>
-    <%=link_to "Edit profile", edit_astrophotographer_path(@astrophotographer)%>
-<%end%>
+<%= link_to "Home", root_path %> |
+<%= link_to "Astrophotographers", astrophotographers_path(@astrophotographer) %> |
+<%= link_to "Constellations", constellations_path(@constellation) %> |
+<%= link_to "Add a Constellation", new_constellation_path(@constellation) %>
+
+
+<h2><%= @astrophotographer.username.capitalize %></h2>
+<img src="<%=@astrophotographer.profile_image %>"/>
+<p><strong>About</strong> <%=@astrophotographer.bio %></p>
+
+<%= link_to "back", astrophotographers_path(@astrophotographers) %> 
+    <% if current_user == @astrophotographer %>
+        <%= link_to "Edit profile", edit_astrophotographer_path(@astrophotographer) %>
+<% end %>
 
 
 <style>
-img {
-height: 150px;
- width: 100 px
-}
+    img {
+    height: 150px;
+    width: 100 px
+    }
 </style>
 
 
 <style>
-img {
-height: 400px;
- width: 200 px
-}
+    img {
+    height: 400px;
+    width: 200 px
+    }
 </style>
 

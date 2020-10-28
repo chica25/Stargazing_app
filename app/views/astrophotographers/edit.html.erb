@@ -1,22 +1,31 @@
 
-<%=link_to "Home", root_path%>|
-<%=link_to "Astrophotographers", astrophotographers_path(@astrophotographer)%>|
-<%=link_to "Constellations", constellations_path(@constellation)%> |
-<%=link_to "Stargazings", stargazings_path(@stargazing)%> 
-<br><br>
-<p>
-<%=form_for @astrophotographer do |f|%>
-        <p><%=f.label :profile_image%>
-        <%=f.text_field :profile_image%>
-        <br><br>
-        <%=f.label :bio%>
-        <%=f.text_area :bio%>
-        <br><br>
-        <%=f.submit "Update profile"%> 
-        <%end%>
-        </p>
 
-        <%=button_to "Delete Account", astrophotographer_path(@astrophotographer), :method => :delete, data:{confirm: "Are you sure you want to delete your account?"}%>
+<%= if flash[:message].blank? %>
+  <div class="flash-message">
+    <%= flash[:message] %>
+  </div>
+<% end %>
+
+
+<%= link_to "Home", root_path%>|
+<%= link_to "Astrophotographers", astrophotographers_path(@astrophotographer) %>|
+<%= link_to "Constellations", constellations_path(@constellation) %> |
+<%= link_to "Stargazings", stargazings_path(@stargazing) %> 
+<br><br>
+
+     <p>
+        <%= form_for(@astrophotographer) do |f| %>
+                <p><%= f.label :profile_image %>
+                <%= f.text_field :profile_image %>
+                <br><br>
+                <%= f.label :bio%>
+                <%= f.text_area :bio%>
+                <br><br>
+                <%= f.submit "Update profile" %> 
+        <% end %>
+    </p>
+
+        <%= button_to "Delete Account", astrophotographer_path(@astrophotographer), :method => :delete, data:{confirm: "Are you sure you want to delete your account?"} %>
 
 
   

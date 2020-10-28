@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
+  <body>
 
 <style>
 img {
@@ -18,17 +18,26 @@ img {
     height: auto%;
     background-size: cover;
     overflow: hidden;
-     background-position: cover;
-     min-height: 200px;
+    background-position: cover;
+    min-height: 100px;
 }
 
 .img {
     color: blue;
 }
 
-
 </style>
 
-<div class="img" style="min-height: 300px;">
-<%= link_to image_tag('astro_1.jpg') %>
-</div>
+
+    <%=render_navigation%>
+    
+<%= yield %>
+
+  <div class="img" style="min-height: 300px;">
+  <%= link_to image_tag('astro_1.jpg') %>
+  </div>
+
+  
+
+  </body>
+</html>

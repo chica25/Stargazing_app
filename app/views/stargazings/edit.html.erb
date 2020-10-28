@@ -1,9 +1,9 @@
 
-<%=link_to "Home", root_path%> |
-<%=link_to "Astrophotographers", astrophotographers_path%>
-<%=link_to "Constellations", constellations_path(@constellation)%> |
-<%=link_to "Add a Constellation", new_constellation_path(@constellation)%> 
+<%= link_to "Home", root_path %> |
+<%= link_to "Astrophotographers", astrophotographers_path %>
+<%= link_to "Constellations", constellations_path(@constellation) %> |
+<%= link_to "Add a Constellation", new_constellation_path(@constellation) %> 
 
 <h2>Edit Stargazing</h2>
 
-<%=render partial: 'star', locals: {stargazing: @stargazing} %>
+    <%= render partial: 'star', locals: {stargazing: @stargazing} %>

@@ -1,22 +1,20 @@
-<%=error_messages_for(@astrophotographer)%>
-<div class="error">
-<%=flash[:message] if flash[:message].present?%>
-</div>
+
 
 <h1>Welcome to Stagazing!</h1>
 
-    <%=form_for :astrophotographer do |f|%>
+    <%= form_for(@astrophotographer) do |f| %>
     <p>
-        <%=f.label :username%>
-        <%=f.text_field :username%>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
     </p>
 
     <p>
-        <%=f.label :Password%>
-        <%=f.password_field :password%>
+        <%= f.label :Password %>
+        <%= f.password_field :password %>
     </p>
 
     <p>
-        <%=f.submit "Signup"%>
+        <%= f.submit "Signup" %>
     </p>
- <%end%>
+ <% end %>
+

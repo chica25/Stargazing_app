@@ -2,7 +2,8 @@ class AstrophotographersController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
     before_action :set_astro, only: [:edit]
 
-    # layout 'main_page'
+     layout 'nav' #=> turns on the late
+     #layout 'false' #=> turns off the layout
 
     def index
         @astrophotographers = Astrophotographer.first_five

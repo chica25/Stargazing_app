@@ -1,12 +1,12 @@
-<%=form_for ([@constellation, @stargazing])do |f|%>
-<%= f.collection_select(:constellation_id, Constellation.all, :id, :constellation_name) %>
-    <%=f.label :location%>
-    <%=f.text_field :location%>
-<br><br>
-    <%=f.label :weather%>
-    <%=f.number_field :weather%>
-<br><br>
-    <%=f.label :time%>
-    <%=f.datetime_field :time%> 
-    <%=f.submit 'Submit'%>
-<%end%>
+<%= form_for ([@constellation, @stargazing])do |f| %>
+    <%= f.collection_select(:constellation_id, Constellation.all, :id, :constellation_name) %>
+    <%= f.label :location %>
+    <%=f.text_field :location %>
+    <br><br>
+    <%= f.label :weather %>
+    <%= f.number_field :weather %>
+    <br><br>
+    <%= f.label :time %>
+    <%= f.datetime_field(:created_at) :time %> 
+    <%= f.submit 'Submit'%>
+<% end %>

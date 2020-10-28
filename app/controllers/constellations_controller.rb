@@ -15,6 +15,7 @@ class ConstellationsController < ApplicationController
     def create
        @constellation = Constellation.new(cons_params)
        if @constellation.save
+        flash.now[:message] = "Created successfully!"
          redirect_to constellation_path(@constellation)
         else
           render :new
