@@ -51,12 +51,6 @@ font-size: 24px;
   padding: 10px 10px;
   margin: 10px;
 }
-.show-imgage {  
-
-}
-
-.index-imgs {
-}
 
 .error {
   color: red;
@@ -78,9 +72,8 @@ font-size: 24px;
 
 </style>
 
-
   <% flash.each do |type, msg| %>
-    <div class="alert alert-info">
+    <div class="message">
       <%= msg %>
     </div>
   <% end %>

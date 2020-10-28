@@ -5,7 +5,7 @@ class StargazingsController < ApplicationController
     if params[:constellation_id] && @constellation = Constellation.find_by_id(params[:constellation_id])
       @stargazings = @constellation.stargazings
     else
-      @stargazings = Stargazing.alpha_order
+      @stargazings = Stargazing.all
     end
  end
 

@@ -5,8 +5,6 @@ class Astrophotographer < ApplicationRecord
     validates :username, presence: true, uniqueness: { case_sensitive: false }
     validates :username, length: {minimum: 4 }
   
-    
-    # scope :alpha, -> { order(:username) }
 
     def self.first_five
         all.limit(5)
