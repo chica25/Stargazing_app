@@ -7,6 +7,7 @@ class ConstellationsController < ApplicationController
 
     def far_away
         @constellations = Constellation.where("light_years_away_from_earth > 250")
+        render :index
     end
 
     def close
