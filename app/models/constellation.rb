@@ -4,5 +4,6 @@ class Constellation < ApplicationRecord
     validates :constellation_name, presence: true
  
     scope :sorted, -> { order(:constellation_name) }
+    scope :close, -> { where('light_years_away_from_earth < 10' )}
 
 end

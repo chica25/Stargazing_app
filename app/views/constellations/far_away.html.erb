@@ -1,15 +1,9 @@
+<h1>hello</h1>
 <%= link_to "Home", root_path %> |
 <%= link_to "Add a Constellation", new_constellation_path(@constellation) %> |
-<%= link_to "Astrophotographers", astrophotographers_path %> 
-<%= link_to "Far away", far_away_constellations_path(@constellation)%>
+<%= link_to "Astrophotographers", astrophotographers_path %> |
 <%= link_to "close", close_path(@constellation)%>
 
 <h1>Constellation Lists</h1>
    <% @constellations.each do |cons| %> <p><%= link_to cons.constellation_name, constellation_path(cons) %></p>
  <% end %>   
-
- <%= link_to "Back", constellations_path%> 
-
-
-
-

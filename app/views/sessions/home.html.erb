@@ -1,6 +1,9 @@
 <%=link_to "Astrophotographers", astrophotographers_path(@astrophotographer)%> |
 <%=link_to "Constellations", constellations_path(@constellation)%> |
-<%=link_to "Add a Constellation", new_constellation_path(@constellation)%>
+<%=link_to "Add a Constellation", new_constellation_path(@constellation)%> |
+<%= link_to "Far away", far_away_constellations_path(@constellation)%> |
+<%= link_to "close", close_path(@constellation)%>
+
 
  <br><br>
 <h2>Welcome, <%=current_user.username.capitalize%></h2>

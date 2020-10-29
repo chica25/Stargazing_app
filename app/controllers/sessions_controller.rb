@@ -11,7 +11,7 @@
                session[:astrophotographer_id] = @astrophotographer.id
                redirect_to root_path
           else
-               flash.now[:error] = "Wrong login. Please try again."
+               flash[:error] = "Wrong login. Please try again."
                render :new
           end
      end

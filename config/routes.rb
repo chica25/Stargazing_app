@@ -11,11 +11,13 @@ get '/auth/:provider/callback', to: 'sessions#omniauth'
 
 get '/signup', to: 'astrophotographers#new'
 post '/signup', to: 'astrophotographers#create'
-  
 
-  resources :astrophotographers
 
-  
+get '/far_away_constellations', to: 'constellations#far_away'
+get '/close', to: 'constellations#close'
+ 
+resources :astrophotographers
+
   resources :stargazings
   
     resources :constellations, only: [:index, :show, :new, :create] do

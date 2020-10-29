@@ -21,10 +21,11 @@ class StargazingsController < ApplicationController
   def create
     @stargazing = current_user.stargazings.new(star_params)
     if @stargazing.save
-      flash.now[:message] = "Created successfully!"
+      flash[:message] = "Created successfully!"
        redirect_to constellation_stargazing_path(@stargazing.constellation, @stargazing)
     else
       render :new
+      # redirect_to new_stargazing_path
     end
   end
  
@@ -43,7 +44,7 @@ class StargazingsController < ApplicationController
       flash[:message] = "Updated successfully!"
       redirect_to constellation_stargazing_path(@stargazing.constellation, @stargazing)
     else
-      flash.now[:error] = "You're not authorize to edit this Stargazing"
+      flash[:error] = "You're not authorize to edit this Stargazing"
          redirect_to constellation_stargazings_path(@stargazing.constellation)
     end
   end
@@ -55,7 +56,7 @@ class StargazingsController < ApplicationController
           @stargazing.destroy
           
       end
-      flash.now[:error] = "You don't have access"
+      flash[:error] = "You don't have access"
       redirect_to stargazings_path(@stargazing)
   end
 

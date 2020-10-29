@@ -2,7 +2,15 @@ class ConstellationsController < ApplicationController
     before_action :set_cons, only: [:show]
 
     def index
-        @constellations = Constellation.all.sorted
+        @constellations = Constellation.all.sorted    
+    end
+
+    def far_away
+        @constellations = Constellation.where("light_years_away_from_earth > 250")
+    end
+
+    def close
+        @constellations = Constellation.close
     end
 
     def show
@@ -15,7 +23,7 @@ class ConstellationsController < ApplicationController
     def create
        @constellation = Constellation.new(cons_params)
        if @constellation.save
-        flash.now[:message] = "Created successfully!"
+        flash[:message] = "Created successfully!"
          redirect_to constellation_path(@constellation)
         else
           render :new
